@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品详情页面</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        /* 顶部导航栏 */
+        .header {
+            background-color: #ffcc00;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* 登录按钮 */
+        .login-btn {
+            background-color: #ffcc00;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+
+        .login-btn:hover {
+            background-color: #e6b800;
+        }
+
+        /* 商品详情部分 */
+        .product-detail-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+            padding: 20px;
+        }
+
+        .product-detail-left {
+            width: 50%;
+            padding: 20px;
+        }
+
+        .product-detail-left img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .product-detail-right {
+            width: 50%;
+            padding: 20px;
+        }
+
+        .product-detail-right h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .product-detail-right p {
+            font-size: 16px;
+            color: #888;
+            margin-bottom: 20px;
+        }
+
+        .product-detail-right .price {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffcc00;
+        }
+
+        /* 按钮部分 */
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .action-buttons a {
+            display: inline-block;
+            background-color: #ffcc00;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+
+        .action-buttons a:hover {
+            background-color: #e6b800;
+        }
+
+        .action-buttons .cart-btn {
+            background-color: #f3a21f;
+        }
+
+        .action-buttons .wishlist-btn {
+            background-color: #e60012;
+        }
+
+        .action-buttons .shop-btn {
+            background-color: #0a74da;
+        }
+
+        /* 商品推荐部分 */
+        .recommendation-container {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .recommendation-container h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .recommendation-list {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .recommendation-item {
+            width: 200px;
+            padding: 10px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            text-align: center;
+        }
+
+        .recommendation-item img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .recommendation-item h4 {
+            margin-top: 10px;
+            font-size: 18px;
+        }
+
+        .recommendation-item p {
+            font-size: 14px;
+            color: #888;
+        }
+
+        .recommendation-item a {
+            display: inline-block;
+            background-color: #ffcc00;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+
+        .recommendation-item a:hover {
+            background-color: #e6b800;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 顶部导航栏 -->
+    <div class="header">
+        <div>商品详情</div>
+        <a href="#" class="login-btn">登录</a>
+    </div>
+
+    <!-- 商品详情部分 -->
+    <div class="product-detail-container">
+        <div class="product-detail-left">
+            <img src="https://via.placeholder.com/600x600?text=Product+Image" alt="商品图片">
+        </div>
+        <div class="product-detail-right">
+            <h2>商品名称</h2>
+            <p>全新金属材质，金色外观，高档大气，精致设计，方便实用，适合喜欢精致生活的你，完美搭配高质量生活，包装精美，送礼佳选。</p>
+            <div class="price">￥58</div>
+
+            <!-- 商品操作按钮 -->
+            <div class="action-buttons">
+                <a href="#" class="cart-btn">加入购物车</a>
+                <a href="#" class="wishlist-btn">收藏</a>
+                <a href="#" class="shop-btn">商铺</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 商品推荐部分 -->
+    <div class="recommendation-container">
+        <h3>为你推荐</h3>
+        <div class="recommendation-list">
+            <div class="recommendation-item">
+                <img src="https://via.placeholder.com/200x200?text=Recommended+Product+1" alt="推荐商品1">
+                <h4>推荐商品1</h4>
+      
