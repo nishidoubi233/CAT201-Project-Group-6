@@ -1,6 +1,4 @@
 import com.sun.net.httpserver.HttpServer;
-import com.sun.net.httpserver.HttpHandler;
-import com.sun.net.httpserver.HttpExchange;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.util.concurrent.Executors;
@@ -11,7 +9,7 @@ public class SimpleHttpServer {
         
         // 注册处理器
         server.createContext("/login", new LoginHandler());
-        server.createContext("/register", new RegisterHandler());
+        server.createContext("/register", new register ());
         
         // 使用线程池
         server.setExecutor(Executors.newFixedThreadPool(10));
