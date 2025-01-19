@@ -7,7 +7,7 @@
 2. 运行安装程序，全部选择默认选项即可
 
 ### 2. 配置 Git
-打开命令行（Windows 用户打开 Git Bash），输入以下命令：
+打开命令行（就是终端，比如vscode里面的终端），输入以下命令：
 
 ```bash
 git config --global user.name "你的名字"
