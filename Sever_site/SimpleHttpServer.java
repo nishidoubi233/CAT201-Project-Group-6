@@ -1,63 +1,115 @@
 import com.sun.net.httpserver.HttpServer;
+import com.sun.net.httpserver.HttpHandler;
+import com.sun.net.httpserver.HttpExchange;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.util.concurrent.Executors;
+import java.util.logging.Logger;
+import java.util.logging.Level;
+import java.io.OutputStream;
 
-/**
- * 简单的 HTTP 服务器实现
- * 处理登录和注册请求
- */
 public class SimpleHttpServer {
+    private static final Logger LOGGER = Logger.getLogger(SimpleHttpServer.class.getName());
     private HttpServer server;
-    private static final int START_PORT = 8080;  // 起始端口号
+    private static final int START_PORT = 8080;
     private int port;
 
     public SimpleHttpServer() throws IOException {
-        // 从8080开始尝试，直到找到可用端口
         port = START_PORT;
-        while (true) {
+        int maxAttempts = 100;
+        int attempts = 0;
+        
+        while (attempts < maxAttempts) {
             try {
                 server = HttpServer.create(new InetSocketAddress("localhost", port), 0);
+                LOGGER.info("Successfully created server on port " + port);
                 break;
             } catch (IOException e) {
+                attempts++;
                 port++;
-                if (port > START_PORT + 100) { // 最多尝试100个端口
-                    throw new IOException("没有找到可用的端口");
+                LOGGER.warning("Port " + (port-1) + " is in use, trying port " + port);
+                
+                if (attempts >= maxAttempts) {
+                    LOGGER.severe("Could not find available port after " + maxAttempts + " attempts");
+                    throw new IOException("No available ports found between " + START_PORT + " and " + (START_PORT + maxAttempts));
                 }
             }
         }
 
-        // 注册 HTTP 路由处理器
-        server.createContext("/login", new LoginHandler());
-        server.createContext("/register", new RegisterHandler());
+        // 配置路由和CORS处理
+        server.createContext("/login", new CorsHandler(new LoginHandler()));
+        server.createContext("/register", new CorsHandler(new RegisterHandler()));
+        server.createContext("/", exchange -> {
+            // 添加一个简单的健康检查端点
+            String response = "Server is running";
+            exchange.sendResponseHeaders(200, response.length());
+            try (OutputStream os = exchange.getResponseBody()) {
+                os.write(response.getBytes());
+            }
+        });
         
-        // 创建固定大小为10的线程池
         server.setExecutor(Executors.newFixedThreadPool(10));
+        LOGGER.info("Server initialized on port " + port);
     }
 
-    /**
-     * 启动服务器
-     */
     public void start() {
         server.start();
-        System.out.println("Server is running on port " + port);
+        LOGGER.info("Server is running on port " + port);
     }
 
-    /**
-     * 停止服务器
-     */
     public void stop() {
         server.stop(0);
-        System.out.println("Server stopped");
+        DatabaseConnection.closeConnection();
+        LOGGER.info("Server stopped");
     }
 
     public static void main(String[] args) {
         try {
             SimpleHttpServer httpServer = new SimpleHttpServer();
-            httpServer.start();    
+            httpServer.start();
+            
+            // 添加关闭钩子
+            Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+                LOGGER.info("Shutting down server...");
+                httpServer.stop();
+            }));
         } catch (IOException e) {
-            System.err.println("Failed to start server: " + e.getMessage());
-            e.printStackTrace();
+            LOGGER.log(Level.SEVERE, "Failed to start server", e);
+        }
+    }
+}
+
+class CorsHandler implements HttpHandler {
+    private final HttpHandler handler;
+    private static final Logger LOGGER = Logger.getLogger(CorsHandler.class.getName());
+
+    public CorsHandler(HttpHandler handler) {
+        this.handler = handler;
+    }
+
+    @Override
+    public void handle(HttpExchange exchange) throws IOException {
+        try {
+            // 添加所有必要的CORS头
+            exchange.getResponseHeaders().add("Access-Control-Allow-Origin", "*");
+            exchange.getResponseHeaders().add("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+            exchange.getResponseHeaders().add("Access-Control-Allow-Headers", "Content-Type, Authorization");
+            exchange.getResponseHeaders().add("Access-Control-Max-Age", "3600");
+            
+            // 处理预检请求
+            if (exchange.getRequestMethod().equalsIgnoreCase("OPTIONS")) {
+                exchange.sendResponseHeaders(204, -1);
+                return;
+            }
+            
+            handler.handle(exchange);
+        } catch (Exception e) {
+            LOGGER.log(Level.SEVERE, "Error handling request", e);
+            String errorMessage = "Internal Server Error";
+            exchange.sendResponseHeaders(500, errorMessage.length());
+            try (OutputStream os = exchange.getResponseBody()) {
+                os.write(errorMessage.getBytes());
+            }
         }
     }
 }

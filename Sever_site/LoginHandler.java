@@ -5,87 +5,47 @@ import java.sql.*;
 import java.nio.charset.StandardCharsets;
 import java.util.logging.Logger;
 import java.util.logging.Level;
+import org.json.JSONObject;
 
-/**
- * 处理用户登录请求的处理器
- * 验证用户名和密码，返回登录结果
- */
 public class LoginHandler implements HttpHandler {
     private static final Logger LOGGER = Logger.getLogger(LoginHandler.class.getName());
 
     @Override
     public void handle(HttpExchange exchange) throws IOException {
-        // 设置CORS头，允许跨域请求
-        exchange.getResponseHeaders().add("Access-Control-Allow-Origin", "*");
-        exchange.getResponseHeaders().add("Access-Control-Allow-Methods", "POST, OPTIONS");
-        exchange.getResponseHeaders().add("Access-Control-Allow-Headers", "Content-Type");
-
-        // 处理 OPTIONS 预检请求
-        if ("OPTIONS".equals(exchange.getRequestMethod())) {
-            exchange.sendResponseHeaders(204, -1);
+        if (!"POST".equals(exchange.getRequestMethod())) {
+            sendResponse(exchange, 405, "Method not allowed");
             return;
         }
 
-        if ("POST".equals(exchange.getRequestMethod())) {
-            try {
-                // 读取并解析请求体
-                String requestBody = new String(exchange.getRequestBody().readAllBytes(), StandardCharsets.UTF_8);
-                
-                // 从请求体中提取用户名和密码
-                String username = extractValue(requestBody, "username");
-                String password = extractValue(requestBody, "password");
+        try {
+            // 读取请求体
+            String requestBody = new String(exchange.getRequestBody().readAllBytes(), StandardCharsets.UTF_8);
+            JSONObject jsonData = new JSONObject(requestBody);
+            
+            String username = jsonData.getString("username");
+            String password = jsonData.getString("password");
 
-                // 验证用户凭据
-                if (validateUser(username, password)) {
-                    String response = "{\"status\":\"success\",\"message\":\"Login successful\"}";
-                    sendResponse(exchange, 200, response);
-                } else {
-                    String response = "{\"status\":\"error\",\"message\":\"Invalid credentials\"}";
-                    sendResponse(exchange, 401, response);
-                }
-                
-            } catch (Exception e) {
-                // 记录错误日志
-                LOGGER.log(Level.SEVERE, "登录过程中发生错误", e);
-                String response = "{\"status\":\"error\",\"message\":\"" + e.getMessage() + "\"}";
-                sendResponse(exchange, 500, response);
+            if (validateUser(username, password)) {
+                LOGGER.info("User logged in successfully: " + username);
+                sendResponse(exchange, 200, "Login successful");
+            } else {
+                LOGGER.warning("Login failed for username: " + username);
+                sendResponse(exchange, 401, "Invalid credentials");
             }
-        } else {
-            // 处理非 POST 请求
-            String response = "{\"status\":\"error\",\"message\":\"Method not allowed\"}";
-            sendResponse(exchange, 405, response);
+            
+        } catch (Exception e) {
+            LOGGER.log(Level.SEVERE, "Login error", e);
+            sendResponse(exchange, 500, "Internal Server Error: " + e.getMessage());
         }
     }
 
-    /**
-     * 从请求体中提取指定键的值
-     * @param requestBody JSON 格式的请求体
-     * @param key 要提取的键名
-     * @return 提取的值
-     */
-    private String extractValue(String requestBody, String key) {
-        String searchStr = "\"" + key + "\":\"";
-        int start = requestBody.indexOf(searchStr) + searchStr.length();
-        int end = requestBody.indexOf("\"", start);
-        return requestBody.substring(start, end);
-    }
-
-    /**
-     * 验证用户名和密码是否正确
-     * @param username 用户名
-     * @param password 密码
-     * @return 验证成功返回 true，失败返回 false
-     */
     private boolean validateUser(String username, String password) {
-        // 验证输入不为空
         if (username == null || password == null || 
             username.trim().isEmpty() || password.trim().isEmpty()) {
             return false;
         }
 
-        // 查询数据库验证用户
         String sql = "SELECT * FROM users WHERE username = ? AND password = ?";
-        
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             
@@ -93,27 +53,27 @@ public class LoginHandler implements HttpHandler {
             stmt.setString(2, password);
             
             try (ResultSet rs = stmt.executeQuery()) {
-                return rs.next();  // 如果有匹配记录则返回 true
+                return rs.next();
             }
-            
         } catch (SQLException e) {
-            LOGGER.log(Level.SEVERE, "数据库查询错误", e);
+            LOGGER.log(Level.SEVERE, "Database error during login", e);
             return false;
         }
     }
 
-    /**
-     * 发送 HTTP 响应
-     * @param exchange HTTP 交换对象
-     * @param statusCode HTTP 状态码
-     * @param response 响应内容
-     */
-    private void sendResponse(HttpExchange exchange, int statusCode, String response) throws IOException {
+    private void sendResponse(HttpExchange exchange, int statusCode, String message) throws IOException {
+        JSONObject response = new JSONObject();
+        response.put("status", statusCode == 200 ? "success" : "error");
+        response.put("message", message);
+        
+        String responseBody = response.toString();
         exchange.getResponseHeaders().set("Content-Type", "application/json");
-        byte[] responseBytes = response.getBytes(StandardCharsets.UTF_8);
-        exchange.sendResponseHeaders(statusCode, responseBytes.length);
+        exchange.sendResponseHeaders(statusCode, responseBody.getBytes(StandardCharsets.UTF_8).length);
+        
         try (OutputStream os = exchange.getResponseBody()) {
-            os.write(responseBytes);
+            os.write(responseBody.getBytes(StandardCharsets.UTF_8));
         }
     }
 }
+
+要使用这些代码，你需要：
