@@ -20,11 +20,11 @@ public class RegisterHandler implements HttpHandler {
                 return;
             }
 
-            // 读取请求体
+            // 读取请求体中的数据
             InputStream requestBody = exchange.getRequestBody();
             String requestData = new String(requestBody.readAllBytes(), StandardCharsets.UTF_8);
             
-            // 解析 JSON 字符串
+            // 将 JSON 字符串解析为 Map
             Map<String, String> jsonData = parseJson(requestData);
             
             // 获取注册信息
@@ -51,6 +51,10 @@ public class RegisterHandler implements HttpHandler {
         }
     }
 
+    /**
+     * 解析简单的 JSON 字符串为 Map
+     * 注意：这是一个简单的实现，只适用于简单的 JSON 格式
+     */
     private Map<String, String> parseJson(String json) {
         Map<String, String> result = new HashMap<>();
         // 移除 {} 和空格
@@ -68,6 +72,10 @@ public class RegisterHandler implements HttpHandler {
         return result;
     }
 
+    /**
+     * 将用户信息注册到数据库
+     * @return 注册成功返回 true，失败返回 false
+     */
     private boolean registerUser(String username, String password, String email) {
         String sql = "INSERT INTO users (username, password, email) VALUES (?, ?, ?)";
         try (Connection conn = DatabaseConnection.getConnection();
@@ -84,6 +92,11 @@ public class RegisterHandler implements HttpHandler {
         }
     }
 
+    /**
+     * 发送 HTTP 响应
+     * @param statusCode HTTP 状态码
+     * @param message 响应消息
+     */
     private void sendResponse(HttpExchange exchange, int statusCode, String message) throws IOException {
         String response = String.format("{\"status\":\"%s\",\"message\":\"%s\"}", 
             statusCode == 200 ? "success" : "error", 
