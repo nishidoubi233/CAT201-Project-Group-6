@@ -4,8 +4,7 @@ import com.sun.net.httpserver.HttpExchange;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.util.concurrent.Executors;
-import java.util.logging.Logger;
-import java.util.logging.Level;
+import java.util.logging.*;
 import java.io.OutputStream;
 
 public class SimpleHttpServer {
@@ -13,6 +12,27 @@ public class SimpleHttpServer {
     private HttpServer server;
     private static final int START_PORT = 8080;
     private int port;
+
+    static {
+        // 配置日志格式
+        ConsoleHandler handler = new ConsoleHandler();
+        handler.setFormatter(new SimpleFormatter() {
+            @Override
+            public String format(LogRecord record) {
+                return String.format("[%s] %s: %s%n",
+                    record.getLevel(),
+                    record.getLoggerName(),
+                    record.getMessage()
+                );
+            }
+        });
+        
+        // 设置日志级别
+        handler.setLevel(Level.ALL);
+        Logger rootLogger = Logger.getLogger("");
+        rootLogger.addHandler(handler);
+        rootLogger.setLevel(Level.ALL);
+    }
 
     public SimpleHttpServer() throws IOException {
         port = START_PORT;

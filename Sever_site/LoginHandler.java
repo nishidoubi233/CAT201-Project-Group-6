@@ -5,25 +5,30 @@ import java.sql.*;
 import java.nio.charset.StandardCharsets;
 import java.util.logging.Logger;
 import java.util.logging.Level;
-import org.json.JSONObject;
+import java.util.HashMap;
+import java.util.Map;
 
 public class LoginHandler implements HttpHandler {
     private static final Logger LOGGER = Logger.getLogger(LoginHandler.class.getName());
 
     @Override
     public void handle(HttpExchange exchange) throws IOException {
+        LOGGER.info("Received login request");
+        
         if (!"POST".equals(exchange.getRequestMethod())) {
+            LOGGER.warning("Invalid request method: " + exchange.getRequestMethod());
             sendResponse(exchange, 405, "Method not allowed");
             return;
         }
 
         try {
-            // 读取请求体
             String requestBody = new String(exchange.getRequestBody().readAllBytes(), StandardCharsets.UTF_8);
-            JSONObject jsonData = new JSONObject(requestBody);
+            LOGGER.info("Request body: " + requestBody);
+            Map<String, String> jsonData = parseJson(requestBody);
             
-            String username = jsonData.getString("username");
-            String password = jsonData.getString("password");
+            String username = jsonData.get("username");
+            String password = jsonData.get("password");
+            LOGGER.info("Attempting login for user: " + username);
 
             if (validateUser(username, password)) {
                 LOGGER.info("User logged in successfully: " + username);
@@ -32,10 +37,42 @@ public class LoginHandler implements HttpHandler {
                 LOGGER.warning("Login failed for username: " + username);
                 sendResponse(exchange, 401, "Invalid credentials");
             }
-            
         } catch (Exception e) {
             LOGGER.log(Level.SEVERE, "Login error", e);
             sendResponse(exchange, 500, "Internal Server Error: " + e.getMessage());
+        }
+    }
+
+    private Map<String, String> parseJson(String json) {
+        Map<String, String> result = new HashMap<>();
+        json = json.trim();
+        if (json.startsWith("{") && json.endsWith("}")) {
+            json = json.substring(1, json.length() - 1);
+            String[] pairs = json.split(",");
+            for (String pair : pairs) {
+                String[] keyValue = pair.split(":");
+                if (keyValue.length == 2) {
+                    String key = keyValue[0].trim().replace("\"", "");
+                    String value = keyValue[1].trim().replace("\"", "");
+                    result.put(key, value);
+                }
+            }
+        }
+        return result;
+    }
+
+    private void sendResponse(HttpExchange exchange, int statusCode, String message) throws IOException {
+        String jsonResponse = String.format(
+            "{\"status\":\"%s\",\"message\":\"%s\"}",
+            statusCode == 200 ? "success" : "error",
+            message.replace("\"", "\\\"")
+        );
+        
+        exchange.getResponseHeaders().set("Content-Type", "application/json");
+        exchange.sendResponseHeaders(statusCode, jsonResponse.getBytes(StandardCharsets.UTF_8).length);
+        
+        try (OutputStream os = exchange.getResponseBody()) {
+            os.write(jsonResponse.getBytes(StandardCharsets.UTF_8));
         }
     }
 
@@ -60,20 +97,5 @@ public class LoginHandler implements HttpHandler {
             return false;
         }
     }
-
-    private void sendResponse(HttpExchange exchange, int statusCode, String message) throws IOException {
-        JSONObject response = new JSONObject();
-        response.put("status", statusCode == 200 ? "success" : "error");
-        response.put("message", message);
-        
-        String responseBody = response.toString();
-        exchange.getResponseHeaders().set("Content-Type", "application/json");
-        exchange.sendResponseHeaders(statusCode, responseBody.getBytes(StandardCharsets.UTF_8).length);
-        
-        try (OutputStream os = exchange.getResponseBody()) {
-            os.write(responseBody.getBytes(StandardCharsets.UTF_8));
-        }
-    }
 }
 
-要使用这些代码，你需要：
