@@ -1,43 +1,72 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/HomePage.css';
+import itemData from '../data/item.json';
 
 const HomePage = () => {
-  const products = [
-    {
-      id: 1,
-      name: "精美金属保温杯",
-      price: 49.9,
-      image: "https://via.placeholder.com/600x600?text=Product+1"
-    },
-    {
-      id: 2,
-      name: "复古机械手表",
-      price: 69.9,
-      image: "https://via.placeholder.com/600x600?text=Product+2"
-    },
-    {
-      id: 3,
-      name: "便携式蓝牙音箱",
-      price: 39.9,
-      image: "https://via.placeholder.com/600x600?text=Product+3"
-    },
-    {
-      id: 4,
-      name: "多功能电子笔记本",
-      price: 89.9,
-      image: "https://via.placeholder.com/600x600?text=Product+4"
-    }
+  const categories = [
+    { id: 1, name: "Hard Drives", icon: "💽", path: "hard-drives" },
+    { id: 2, name: "Headphones", icon: "🎧", path: "headphones" },
+    { id: 3, name: "Keyboards", icon: "⌨️", path: "keyboards" },
+    { id: 4, name: "Monitors", icon: "🖥️", path: "monitors" },
+    { id: 5, name: "Mouse", icon: "🖱️", path: "mouse" },
+    { id: 6, name: "Speakers", icon: "🔊", path: "speakers" }
   ];
+
+  // 预先选定的折扣商品ID - 使用这三个特定商品
+  const discountItemIds = [78451, 59234, 94627];  // 这三个ID对应：
+  // 78451 - Wireless Ergonomic Earbuds
+  // 59234 - RGB Mechanical Gaming Keyboard
+  // 94627 - Classic Bookshelf Speaker
+
+  
+ // other item ids
+  const recommendItemIds = [
+    48293, 74638, 58247, 91457, 67342, 83562,  // Hard Drives
+    63928, 52713, 46219, 31567, 47985,         // Headphones
+    74829, 83627, 92547, 47392, 58641, 76258,  // Keyboards
+    76154, 83492, 94276, 54862, 67284, 39751,  // Monitors
+    58239, 61345, 47192, 38562, 52984, 64721,  // Mouse
+    78349, 49283, 68327, 76431, 85329,         // Speakers
+  ]  // 使用其他耳机、键盘和音箱
+
+  // 获取随机推荐商品ID
+  const getRandomRecommendItemIds = () => {
+    const randomIds = [];
+    const availableIds = [...recommendItemIds]; // 创建一个副本以避免修改原数组
+    
+    while (randomIds.length < 4 && availableIds.length > 0) {
+      const randomIndex = Math.floor(Math.random() * availableIds.length);
+      randomIds.push(availableIds[randomIndex]);
+      availableIds.splice(randomIndex, 1); // 移除已选择的ID
+    }
+    return randomIds;
+  };
+
+  // 获取折扣商品信息
+  const discountItems = discountItemIds
+    .map(id => itemData.find(item => item.item_id === id))
+    .filter(Boolean)
+    .map(item => ({
+      ...item,
+      discountPrice: Math.round(item.price * 0.75 * 100) / 100
+    }));
+
+  // 获取推荐商品信息 - 使用随机生成的ID
+  const recommendItems = getRandomRecommendItemIds()  // 调用函数获取随机ID
+    .map(id => itemData.find(item => item.item_id === id))
+    .filter(Boolean);
 
   return (
     <div>
       <header>
         <div className="header-container">
-          <div className="logo">Logo</div>
-          <div className="search-bar">
-            <input type="text" placeholder="Search" />
-            <button type="submit">Search</button>
+          <div className="logo">USMSHOP</div>
+          <div className="search-container">
+            <div className="search-box">
+              <input type="text" placeholder="Search" className="search-input" />
+              <button type="submit" className="search-button">Search</button>
+            </div>
           </div>
           <div className="user-actions">
             <Link to="/login" className="login">Login</Link>
@@ -46,145 +75,77 @@ const HomePage = () => {
         </div>
       </header>
 
-      <main>
-        <aside className="category-menu">
-          <ul>
-            <li>
-              <i className="icon-phone"></i>
-              Phones / Digital
-              <div className="submenu">
-                <Link to="/categories/phones"><p>Smartphones</p></Link>
-                <Link to="/categories/laptops"><p>Laptops</p></Link>
-                <Link to="/categories/tablets"><p>Tablets</p></Link>
-                <Link to="/categories/cameras"><p>Cameras</p></Link>
-              </div>
-            </li>
-            <li>
-              Fashion / Sports
-              <div className="submenu">
-                <p>Men's Wear</p>
-                <p>Women's Wear</p>
-                <p>Sports Equipment</p>
-                <p>Running Shoes</p>
-                <p>Accessories</p>
-              </div>
-            </li>
-            <li>
-              Beauty / Personal Care
-              <div className="submenu">
-                <p>Skincare</p>
-                <p>Makeup</p>
-                <p>Hair Care</p>
-                <p>Fragrances</p>
-                <p>Personal Hygiene</p>
-              </div>
-            </li>
-            <li>
-              Home / Appliances
-              <div className="submenu">
-                <p>Kitchen Appliances</p>
-                <p>Furniture</p>
-                <p>Home Decor</p>
-                <p>Lighting</p>
-                <p>Storage</p>
-              </div>
-            </li>
-            <li>
-              Food / Pets
-              <div className="submenu">
-                <p>Groceries</p>
-                <p>Pet Food</p>
-                <p>Pet Supplies</p>
-                <p>Snacks</p>
-                <p>Beverages</p>
-              </div>
-            </li>
-            <li>
-              Books / Games
-              <div className="submenu">
-                <p>Fiction Books</p>
-                <p>Video Games</p>
-                <p>Board Games</p>
-                <p>Educational</p>
-                <p>Comics & Manga</p>
-              </div>
-            </li>
-          </ul>
-        </aside>
-
-        <div className="content-area">
-          <div className="main-promotion">
-            <Link to="/promotions/special-sale">
-              <img src="https://via.placeholder.com/1200x300" alt="Special Sale" />
-              <div className="banner-content">
-                <h2>Flash Sale</h2>
-                <p>Super deals up to 70% off</p>
-                <button className="view-more">Check it out &gt;</button>
-              </div>
-            </Link>
+      <main className="main-content">
+        <div className="top-section">
+          <div className="categories-sidebar">
+            {categories.map(category => (
+              <Link 
+                to={`/category/${category.path}`} 
+                key={category.id} 
+                className="category-item"
+              >
+                <span className="category-icon">{category.icon}</span>
+                <span className="category-name">{category.name}</span>
+              </Link>
+            ))}
           </div>
 
-          <div className="featured-grid">
-            <Link to="#" className="featured-card yellow">
-              <div className="card-content">
-                <div className="card-text">
-                  <h3>Fashion</h3>
-                  <p>Trendy Styles</p>
-                </div>
-                <img src="https://via.placeholder.com/100" alt="Fashion" />
-              </div>
-            </Link>
-            <Link to="#" className="featured-card blue">
-              <div className="card-content">
-                <div className="card-text">
-                  <h3>Digital</h3>
-                  <p>Hot Gadgets</p>
-                </div>
-                <img src="https://via.placeholder.com/100" alt="Digital" />
-              </div>
-            </Link>
-            <Link to="#" className="featured-card green">
-              <div className="card-content">
-                <div className="card-text">
-                  <h3>Anime</h3>
-                  <p>Latest Collections</p>
-                </div>
-                <img src="https://via.placeholder.com/100" alt="Anime" />
-              </div>
-            </Link>
-            <Link to="#" className="featured-card pink">
-              <div className="card-content">
-                <div className="card-text">
-                  <h3>Coupons</h3>
-                  <p>Save Big</p>
-                </div>
-                <img src="https://via.placeholder.com/100" alt="Coupons" />
-              </div>
-            </Link>
+          <div className="discount-section">
+            <h2>Special Offers</h2>
+            <div className="discount-items">
+              {discountItems.map(item => (
+                <Link 
+                  to={`/product/${item.item_id}`} 
+                  key={item.item_id} 
+                  className="discount-item"
+                >
+                  <div className="discount-image">
+                    <img 
+                      src={`/images/${item.image_id}`} 
+                      alt={item.name}
+                      onError={(e) => {
+                        e.target.onerror = null;
+                        e.target.src = '/images/placeholder.jpg';
+                      }}
+                    />
+                  </div>
+                  <div className="item-info">
+                    <h3>{item.name}</h3>
+                    <div className="price-info">
+                      <span className="current-price">RM{item.discountPrice}</span>
+                      <span className="original-price">RM{item.price}</span>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
           </div>
+        </div>
 
-          <div className="interest-tags">
-            <a href="#" className="tag active">
-              <i className="icon-star"></i>
-              Recommended
-            </a>
-            <a href="#" className="tag">Second Hand</a>
-            <a href="#" className="tag">BJD Dolls</a>
-            <a href="#" className="tag">Fishing</a>
-            <a href="#" className="tag">Guitar</a>
-            <a href="#" className="tag">Table Tennis</a>
-            <a href="#" className="tag">Photography</a>
-          </div>
-
-          <div className="product-grid">
-            {products.map(product => (
-              <Link to={`/product/${product.id}`} className="product-card" key={product.id}>
-                <div className="product-image">
-                  <img src={product.image} alt={product.name} />
+        <div className="recommendation-section">
+          <h2>Recommended For You</h2>
+          <div className="recommendation-items">
+            {recommendItems.map(item => (
+              <Link 
+                to={`/product/${item.item_id}`} 
+                key={item.item_id} 
+                className="recommendation-item"
+              >
+                <div className="recommendation-image">
+                  <img 
+                    src={`/images/${item.image_id}`} 
+                    alt={item.name}
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = '/images/placeholder.jpg';
+                    }}
+                  />
                 </div>
-                <div className="product-info">
-                  <h3>{product.name}</h3>
-                  <p className="price">￥{product.price}</p>
+                <div className="item-info">
+                  <h3>{item.name}</h3>
+                  <div className="price-info">
+                    <span className="current-price">RM{item.price}</span>
+                  </div>
                 </div>
               </Link>
             ))}

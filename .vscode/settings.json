@@ -1,5 +1,3 @@
 {
-    "java.project.sourcePaths": [
-        "Sever_site"
-    ]
+    "java.configuration.updateBuildConfiguration": "interactive"
 }
