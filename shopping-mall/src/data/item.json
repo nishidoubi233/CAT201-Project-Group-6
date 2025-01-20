@@ -1,0 +1,298 @@
+[
+  {
+    "item_id": 48293,
+    "item_type": "hard drive",
+    "name": "Sleek Portable Hard Drive",
+    "price": 299.99,
+    "image_id": "Hard Drive_1.webp",
+    "description": "This sleek portable hard drive is designed for those who need to take large amounts of data on the go. Encased in a brushed aluminum shell, it offers both durability and a sophisticated look. With a USB 3.0 interface, it ensures high-speed data transfer, making it ideal for backing up important files quickly. The compact design allows it to fit easily into any bag or pocket, making it perfect for travel. Its shockproof technology protects your data from accidental drops and bumps. Compatible with both Windows and Mac systems, it offers versatility for different users. This hard drive is an essential tool for photographers, videographers, and anyone needing reliable storage."
+  },
+  {
+    "item_id": 74638,
+    "item_type": "hard drive",
+    "name": "Industrial External Hard Drive",
+    "price": 349.99,
+    "image_id": "Hard Drive_2.jpg",
+    "description": "The Industrial External Hard Drive is engineered for robust performance and durability, ideal for demanding environments. Its rugged metal casing provides excellent protection against dust and physical impact, ensuring your data remains secure. Featuring a high-speed USB 3.0 connection, it facilitates fast data transfers, making it perfect for large files and complex projects. The design includes reinforced corners and a sturdy cable connection to withstand heavy use. This hard drive is compatible with both Windows and Mac systems, offering versatility across different platforms. With its sleek industrial look, it not only performs well but also adds a professional touch to your setup. Suitable for engineers, designers, and professionals requiring reliable data storage on-the-go, this drive meets the highest standards of quality and resilience."
+  },
+  {
+    "item_id": 58247,
+    "item_type": "hard drive",
+    "name": "Sleek Silver External Hard Drive",
+    "price": 279.99,
+    "image_id": "Hard Drive_3.webp",
+    "description": "The Sleek Silver External Hard Drive is a stylish and efficient storage solution for modern users. Encased in a sleek silver aluminum body, it is both lightweight and durable, offering excellent protection for your valuable data. The drive features a unique textured surface for enhanced grip and aesthetic appeal. Equipped with dual USB 3.0 ports, it ensures fast data transfers, making it ideal for handling large files such as videos and high-resolution images. Its slim design allows for easy portability, fitting comfortably in any bag or pocket. This hard drive is compatible with both Windows and Mac operating systems, providing versatility and ease of use. The LED indicator adds a touch of modernity, displaying power and activity status. Perfect for students, professionals, and anyone in need of reliable, mobile storage."
+  },
+  {
+    "item_id": 91457,
+    "item_type": "hard drive",
+    "name": "Futuristic Dual-Port Hard Drive",
+    "price": 329.99,
+    "image_id": "Hard Drive_4.png",
+    "description": "The Futuristic Dual-Port Hard Drive offers a cutting-edge design and exceptional performance for tech-savvy users. Encased in a sleek, matte black finish, this hard drive combines aesthetics with functionality. It features an innovative cooling mechanism at the center, highlighted by an LED-lit ring, ensuring optimal performance during extended usage. Equipped with dual USB 3.1 ports, it supports high-speed data transfers, making it ideal for large multimedia files and backups. Its robust build ensures durability while maintaining a lightweight profile for easy portability. Compatible with both Windows and Mac systems, it caters to a wide range of users. This hard drive is perfect for creative professionals and tech enthusiasts looking for a reliable, stylish storage solution."
+  },
+  {
+    "item_id": 67342,
+    "item_type": "hard drive",
+    "name": "Classic Portable Hard Drive",
+    "price": 259.99,
+    "image_id": "Hard Drive_5.jpg",
+    "description": "The Classic Portable Hard Drive delivers reliable storage in a timeless design. Featuring a sturdy black casing, it provides excellent protection for your data while maintaining a sleek appearance. The hard drive is equipped with multiple ports, including USB and eSATA, offering versatile connectivity options for fast data transfers. Its compact design ensures it fits easily into any travel bag, making it an ideal companion for on-the-go storage needs. Compatible with both Windows and Mac operating systems, it offers flexibility for various users. The durable build ensures longevity, while the matte finish resists fingerprints and scratches. Perfect for students, professionals, or anyone requiring dependable storage, this hard drive combines functionality with classic style."
+  },
+  {
+    "item_id": 83562,
+    "item_type": "hard drive",
+    "name": "Geometric High-Speed Hard Drive",
+    "price": 299.99,
+    "image_id": "Hard Drive_6.jpg",
+    "description": "The Geometric High-Speed Hard Drive combines modern design with advanced functionality, making it an excellent choice for tech enthusiasts. Encased in a stylish geometric-patterned shell, this hard drive not only looks great but also offers robust protection for your data. It features multiple USB 3.0 ports for quick data transfer, ideal for handling large files and backups efficiently. The device's slim profile ensures it fits easily into your bag, enhancing its portability. Equipped with LED indicators, it provides a visual status of your data transfer activities. Compatible with both Windows and Mac systems, this hard drive offers versatility for various users. Its durable build ensures long-term reliability, making it perfect for students, professionals, and anyone needing a dependable, stylish storage solution."
+  },
+  {
+    "item_id": 78451,
+    "item_type": "headphone",
+    "name": "Wireless Ergonomic Earbuds",
+    "price": 199.99,
+    "image_id": "Headphones_1.png",
+    "description": "The Wireless Ergonomic Earbuds offer a seamless listening experience combined with cutting-edge design and comfort. Featuring a sleek black finish with metallic accents, these earbuds are crafted for both style and functionality. They boast advanced Bluetooth connectivity, ensuring a stable and quick connection to your devices. The ergonomic design provides a secure fit, making them ideal for workouts, travel, or everyday use. With noise isolation technology, you can enjoy immersive sound quality without external distractions. A long-lasting battery ensures extended playtime, and the included charging case offers convenient power on the go. These earbuds are compatible with both Android and iOS devices, providing versatile use across platforms. Perfect for music lovers and active individuals, they deliver exceptional audio performance and comfort."
+  },
+  {
+    "item_id": 63928,
+    "item_type": "headphone",
+    "name": "Premium Noise-Cancelling Headphones",
+    "price": 499.99,
+    "image_id": "Headphones_2.png",
+    "description": "These Premium Noise-Cancelling Headphones are designed to deliver an unparalleled audio experience. Crafted with high-quality materials, the headphones feature a sleek, matte black finish that exudes sophistication. The over-ear design provides maximum comfort with plush ear cushions and an adjustable headband, making them perfect for extended listening sessions. Equipped with advanced noise-cancelling technology, they effectively block out ambient noise, allowing you to immerse yourself fully in your music. The headphones offer wireless connectivity with long battery life, ensuring uninterrupted audio enjoyment. Compatible with multiple devices, including smartphones and laptops, they are versatile for various users. Ideal for audiophiles and professionals who demand superior sound quality and comfort."
+  },
+  {
+    "item_id": 52713,
+    "item_type": "headphone",
+    "name": "Advanced True Wireless Earbuds",
+    "price": 299.99,
+    "image_id": "Headphones_3.png",
+    "description": "The Advanced True Wireless Earbuds offer a premium listening experience with cutting-edge technology and sleek design. Featuring a matte black finish, these earbuds are designed to blend style with comfort. They include advanced noise-cancellation technology, ensuring an immersive audio experience by minimizing ambient sounds. The ergonomic design ensures a secure and comfortable fit, perfect for long listening sessions or workouts. With Bluetooth 5.0 connectivity, they provide a stable and fast connection to your devices. The earbuds also come with a compact charging case, offering extended battery life for all-day use. Compatible with both iOS and Android devices, they are versatile and easy to use. Ideal for music enthusiasts and active individuals seeking top-notch sound quality and convenience."
+  },
+  {
+    "item_id": 46219,
+    "item_type": "headphone",
+    "name": "Compact Wireless Earbuds",
+    "price": 349.99,
+    "image_id": "Headphones_4.png",
+    "description": "The Compact Wireless Earbuds are designed for a seamless audio experience with a sleek and modern aesthetic. Encased in a smooth, white finish, these earbuds offer both style and functionality. They feature advanced noise-cancellation technology, allowing you to enjoy crystal-clear sound without distractions. The ergonomic design ensures a comfortable fit for all-day wear, making them perfect for workouts, commuting, or relaxation. With Bluetooth 5.0 connectivity, these earbuds provide a reliable and fast connection to your devices. The included charging case offers extended battery life, ensuring your music is always with you. Compatible with a range of devices, including iOS and Android, they cater to a diverse audience. Ideal for those seeking quality, convenience, and style in their audio accessories."
+  },
+  {
+    "item_id": 31567,
+    "item_type": "headphone",
+    "name": "Elegant Metallic Wireless Earbuds",
+    "price": 379.99,
+    "image_id": "Headphones_5.png",
+    "description": "The Elegant Metallic Wireless Earbuds offer a sophisticated listening experience with their sleek design and superior sound quality. Finished in a refined metallic silver, these earbuds boast a modern and luxurious aesthetic. They feature advanced Bluetooth connectivity, ensuring seamless pairing with your devices for a hassle-free audio experience. The earbuds come with active noise cancellation technology, allowing you to enjoy your music without external interruptions. Their ergonomic fit ensures comfort, making them ideal for extended use throughout the day. Accompanied by a compact charging case, they provide long-lasting battery life, perfect for travel or commutes. Compatible with both Android and iOS devices, these earbuds are a versatile choice for discerning users looking for style and performance."
+  },
+  {
+    "item_id": 47985,
+    "item_type": "headphone",
+    "name": "Classic Over-Ear Headphones",
+    "price": 229.99,
+    "image_id": "Headphones_6.png",
+    "description": "The Classic Over-Ear Headphones deliver a timeless design coupled with modern audio technology. Featuring a sleek black finish, these headphones are crafted with premium materials for durability and comfort. The over-ear design provides excellent noise isolation, allowing you to immerse yourself in high-quality sound without external distractions. Soft cushioned ear pads and an adjustable headband ensure a comfortable fit for extended listening sessions. These headphones offer reliable wired connectivity, ensuring consistent audio performance. Ideal for music enthusiasts and professionals who appreciate classic aesthetics and superior sound quality, they are compatible with a wide range of audio devices. Experience rich bass and clear highs with these expertly engineered headphones."
+  },
+  {
+    "item_id": 59234,
+    "item_type": "keyboard",
+    "name": "RGB Mechanical Gaming Keyboard",
+    "price": 459.99,
+    "image_id": "Keyboard_1.webp",
+    "description": "The RGB Mechanical Gaming Keyboard is designed for gamers who demand precision and style. Featuring a robust build with high-quality mechanical switches, this keyboard offers tactile feedback and durability for intense gaming sessions. Each key is individually backlit with customizable RGB lighting, allowing you to personalize your setup with vibrant colors and effects. The ergonomic design ensures comfortable use over extended periods, with adjustable stands to suit your typing angle. Equipped with anti-ghosting and N-key rollover, it ensures every keystroke is registered accurately, providing a competitive edge in gaming. The keyboard's sleek, modern design is complemented by a brushed metal finish, enhancing its aesthetic appeal. Perfect for gaming enthusiasts seeking both performance and visual flair."
+  },
+  {
+    "item_id": 74829,
+    "item_type": "keyboard",
+    "name": "Custom Anime-Themed Mechanical Keyboard",
+    "price": 499.99,
+    "image_id": "Keyboard_2.jpg",
+    "description": "The Custom Anime-Themed Mechanical Keyboard is a unique blend of functionality and art, perfect for enthusiasts who appreciate personalized gear. Each keycap is adorned with vibrant anime designs, providing a visually stunning and playful aesthetic. Built with high-quality mechanical switches, this keyboard ensures a satisfying tactile response and durability for intense gaming or typing sessions. The dynamic RGB lighting beneath the keycaps enhances the visual appeal, offering customizable lighting effects to match your setup. Its ergonomic design includes adjustable feet for optimal typing comfort. With anti-ghosting and full N-key rollover, every keystroke is registered accurately, giving you an edge in competitive gaming. This keyboard is not only a tool but a statement piece for any desk setup."
+  },
+  {
+    "item_id": 83627,
+    "item_type": "keyboard",
+    "name": "Compact RGB Mechanical Keyboard",
+    "price": 349.99,
+    "image_id": "Keyboard_3.jpg",
+    "description": "The Compact RGB Mechanical Keyboard offers a perfect blend of performance and aesthetic appeal, designed for gamers and typists who value precision and style. Its compact form factor saves space on your desk while providing all the essential keys for efficient use. Each key is equipped with durable mechanical switches that deliver a satisfying tactile response and longevity. The vibrant RGB backlighting allows for customizable lighting effects, creating a visually striking gaming environment. Built with high-quality materials, the keyboard features a sleek, modern design that complements any setup. Anti-ghosting and N-key rollover ensure accurate key registration during intense gaming sessions. This keyboard is ideal for those seeking a reliable and stylish addition to their tech arsenal."
+  },
+  {
+    "item_id": 92547,
+    "item_type": "keyboard",
+    "name": "Full-Size RGB Mechanical Keyboard",
+    "price": 499.99,
+    "image_id": "Keyboard_4.jpeg",
+    "description": "The Full-Size RGB Mechanical Keyboard is a top-tier choice for gamers and professionals who demand both performance and aesthetics. Featuring a full array of keys, including a numeric keypad, this keyboard is designed for efficiency and productivity. Each key is illuminated with customizable RGB backlighting, allowing you to create personalized lighting effects that enhance your gaming experience. The mechanical switches provide a tactile and responsive feel, ensuring precise keystrokes during intense gaming sessions. Built with a durable frame and a sleek design, it complements any desktop setup. Anti-ghosting and N-key rollover features ensure that every command is registered accurately. Perfect for those seeking a blend of functionality, comfort, and visual flair in their peripherals."
+  },
+  {
+    "item_id": 47392,
+    "item_type": "keyboard",
+    "name": "Sleek Mechanical Gaming Keyboard",
+    "price": 399.99,
+    "image_id": "Keyboard_5.jpeg",
+    "description": "The Sleek Mechanical Gaming Keyboard is crafted for gamers and professionals who value precision and style. Featuring durable mechanical switches, it provides a tactile and responsive typing experience, ensuring each keystroke is registered accurately. The keyboard's design is modern and minimalist, with a matte black finish that complements any setup. It includes customizable backlighting, allowing users to personalize the lighting to match their gaming environment. Built with high-quality materials, it offers longevity and robust performance. The ergonomic design supports comfortable use during long sessions, with adjustable feet for optimal positioning. This keyboard is an ideal choice for those seeking reliable performance and sleek aesthetics."
+  },
+  {
+    "item_id": 58641,
+    "item_type": "keyboard",
+    "name": "Anime-Themed Mechanical Keyboard",
+    "price": 549.99,
+    "image_id": "Keyboard_6.jpg",
+    "description": "The Anime-Themed Mechanical Keyboard is a perfect fusion of functionality and fandom, designed for users who appreciate unique and personalized gear. This keyboard features vibrant anime artwork across its surface, creating a captivating visual experience. Equipped with high-quality mechanical switches, it provides a satisfying tactile response and durability for both gaming and typing. The customizable RGB backlighting enhances the aesthetic, offering a variety of lighting effects to match your mood or setup. Its durable construction ensures longevity, while the ergonomic design promotes comfort during extended use. Complete with anti-ghosting and N-key rollover, it guarantees precise input recognition. An ideal choice for anime fans and gamers seeking a distinctive and reliable keyboard."
+  },
+  {
+    "item_id": 76258,
+    "item_type": "keyboard",
+    "name": "Custom Pastel Mechanical Keyboard",
+    "price": 529.99,
+    "image_id": "Keyboard_7.png",
+    "description": "The Custom Pastel Mechanical Keyboard is a vibrant and playful addition to any desk setup. Featuring a delightful mix of pastel-colored keycaps adorned with whimsical symbols and designs, this keyboard stands out with its unique charm. Crafted with high-quality mechanical switches, it provides a satisfying tactile feedback and ensures longevity for both gaming and typing. The solid build and ergonomic design offer comfort during extended use, while the customizable keycaps allow for a personalized touch. This keyboard is not only a functional tool but also an artistic statement, perfect for those who love to express their personality through their tech accessories. An excellent choice for creatives and enthusiasts looking to add a splash of color to their workspace."
+  },
+  {
+    "item_id": 76154,
+    "item_type": "monitor",
+    "name": "Ultra-Wide Curved Monitor",
+    "price": 1299.99,
+    "image_id": "Monitor_1.jpg",
+    "description": "The Ultra-Wide Curved Monitor is designed to provide an immersive viewing experience with its expansive screen and stunning visuals. Featuring a sleek and modern design, this monitor boasts a high-resolution display that brings every detail to life. The curvature enhances the field of view, reducing eye strain and offering a more natural viewing angle. Ideal for gaming, productivity, or entertainment, it supports vibrant colors and deep contrasts for a truly dynamic picture. The monitor includes multiple connectivity options, ensuring compatibility with a variety of devices. Its adjustable stand allows for ergonomic positioning, making it comfortable for extended use. This monitor is perfect for users seeking an upgrade in both performance and aesthetics."
+  },
+  {
+    "item_id": 83492,
+    "item_type": "monitor",
+    "name": "Curved 4K UHD Monitor",
+    "price": 1599.99,
+    "image_id": "Monitor_2.jpg",
+    "description": "The Curved 4K UHD Monitor offers a breathtaking visual experience with its expansive screen and ultra-high-definition resolution. Designed for immersive viewing, the curved display enhances depth perception and reduces distortion, making it ideal for gaming, movies, and detailed work. This monitor features vibrant colors and sharp contrasts, bringing every image to life with stunning clarity. It includes multiple connectivity options, such as HDMI and DisplayPort, ensuring compatibility with various devices. The adjustable stand allows for ergonomic customization, providing comfort during long hours of use. Built with energy-efficient technology, it balances performance with environmental responsibility, making it a perfect choice for tech enthusiasts and professionals alike."
+  },
+  {
+    "item_id": 94276,
+    "item_type": "monitor",
+    "name": "Sleek All-in-One Desktop Monitor",
+    "price": 2999.99,
+    "image_id": "Monitor_3.png",
+    "description": "The Sleek All-in-One Desktop Monitor offers a seamless blend of performance and aesthetics, perfect for both work and entertainment. Encased in a modern, minimalist frame, this monitor integrates cutting-edge technology to provide a crystal-clear display with vibrant colors and sharp details. Its all-in-one design includes built-in computing capabilities, reducing clutter and simplifying your workspace. The monitor features a high-resolution screen that is ideal for tasks ranging from graphic design to watching movies. Multiple connectivity options, including USB and HDMI, ensure compatibility with various devices. With a focus on energy efficiency, it provides a sustainable solution without compromising on performance. A great choice for those seeking functionality and elegance in one package."
+  },
+  {
+    "item_id": 54862,
+    "item_type": "monitor",
+    "name": "Dual Ultra HD Monitor Set",
+    "price": 2899.99,
+    "image_id": "Monitor_4.jpg",
+    "description": "The Dual Ultra HD Monitor Set is designed for professionals and enthusiasts seeking expansive screen real estate and stunning visual clarity. Each monitor features a high-resolution display that delivers vibrant colors and sharp details, perfect for multitasking, gaming, or design work. The slim bezels provide a virtually seamless viewing experience, enhancing immersion and productivity. With adjustable stands, these monitors offer ergonomic flexibility, allowing you to customize height and angle for maximum comfort. Multiple connectivity options, including HDMI and USB-C, ensure compatibility with a wide range of devices. Energy-efficient LED technology ensures reduced power consumption without compromising performance. Ideal for those who demand excellence in visual quality and workspace efficiency."
+  },
+  {
+    "item_id": 67284,
+    "item_type": "monitor",
+    "name": "Elegant 27-Inch HD Monitor",
+    "price": 1599.99,
+    "image_id": "Monitor_5.webp",
+    "description": "The Elegant 27-Inch HD Monitor is designed to enhance both productivity and entertainment with its crisp display and modern aesthetics. Featuring a high-definition resolution, this monitor delivers vivid colors and sharp details, making it ideal for graphic design, gaming, and watching movies. The slim bezel design maximizes screen space, providing a seamless viewing experience. It includes versatile connectivity options such as HDMI and USB ports to accommodate various devices. The adjustable stand allows for ergonomic positioning, reducing strain during long hours of use. With energy-efficient technology, this monitor is an environmentally friendly choice without sacrificing performance. Perfect for home or office setups, it combines style with functionality for an exceptional viewing experience."
+  },
+  {
+    "item_id": 39751,
+    "item_type": "monitor",
+    "name": "Dual 4K Professional Monitor Set",
+    "price": 3499.99,
+    "image_id": "Monitor_6.png",
+    "description": "The Dual 4K Professional Monitor Set is perfect for those who demand exceptional clarity and expansive workspace. Each monitor offers ultra-high-definition 4K resolution, delivering breathtaking detail and vibrant colors, ideal for creative professionals and multitaskers. The slim bezels provide a near-seamless viewing experience, enhancing immersion in your work or entertainment. Adjustable stands allow for ergonomic positioning, ensuring comfort for extended periods. With multiple connectivity options, including HDMI and DisplayPort, these monitors are versatile and compatible with a variety of devices. Their energy-efficient design helps reduce power consumption, making them a responsible choice for any office or home setup."
+  },
+  {
+    "item_id": 58239,
+    "item_type": "mouse",
+    "name": "Precision Gaming Mouse",
+    "price": 299.99,
+    "image_id": "Mouse_1.png",
+    "description": "The Precision Gaming Mouse is designed for gamers who demand accuracy and speed. Featuring a sleek, ergonomic design, it fits comfortably in your hand, reducing fatigue during long gaming sessions. The mouse boasts high-precision optical sensors that provide smooth tracking and pinpoint accuracy. Customizable buttons and DPI settings allow you to tailor the performance to your gaming style. The durable braided cable ensures longevity and minimal drag, while the customizable RGB lighting adds a personal touch to your setup. Crafted with high-quality materials, this mouse is built to withstand intense gaming action, making it an essential tool for any serious gamer."
+  },
+  {
+    "item_id": 61345,
+    "item_type": "mouse",
+    "name": "Ergonomic RGB Gaming Mouse",
+    "price": 329.99,
+    "image_id": "Mouse_2.png",
+    "description": "The Ergonomic RGB Gaming Mouse is tailored for gamers who seek both style and functionality. With a sleek black finish accented by vibrant RGB lighting, this mouse stands out in any gaming setup. It features an ergonomic design that fits comfortably in your hand, reducing strain during extended gaming sessions. The high-precision optical sensor offers customizable DPI settings for optimal sensitivity and accuracy. Programmable buttons provide additional control, allowing you to configure macros and shortcuts to enhance your gameplay. The durable build quality ensures long-lasting performance, while the braided cable minimizes drag. This mouse is an essential tool for gamers looking to elevate their gaming experience."
+  },
+  {
+    "item_id": 47192,
+    "item_type": "mouse",
+    "name": "Pro Gaming Mouse",
+    "price": 279.99,
+    "image_id": "Mouse_3.jpg",
+    "description": "The Pro Gaming Mouse is crafted for serious gamers seeking precision and comfort. Its sleek, matte black design is combined with an ergonomic shape that fits naturally in the hand, reducing fatigue during extended gaming sessions. Equipped with a high-performance optical sensor, it offers adjustable DPI settings for tailored sensitivity and accuracy. The mouse features customizable buttons, allowing for personalized commands and macros to enhance gameplay efficiency. The vibrant RGB lighting around the scroll wheel adds a dynamic touch, customizable to match your gaming setup. Built with a durable braided cable, it ensures longevity and minimal drag. This mouse is an essential tool for any gamer aiming to excel in their virtual battles."
+  },
+  {
+    "item_id": 38562,
+    "item_type": "mouse",
+    "name": "Dual Color Precision Mice Set",
+    "price": 499.99,
+    "image_id": "Mouse_4.webp",
+    "description": "The Dual Color Precision Mice Set includes two ergonomically designed mice, perfect for both work and play. Featuring a sleek design, one mouse comes in a cool blue finish while the other boasts a classic black look, allowing you to switch styles based on your mood or setup. Both mice are equipped with high-precision optical sensors that ensure smooth tracking and accurate performance. The textured sides offer enhanced grip, making them comfortable for extended use. Adjustable DPI settings let you customize the sensitivity to your preference, while programmable buttons provide additional control for gaming or productivity tasks. These mice are built with durability in mind, featuring a robust cable connection for long-lasting use. Ideal for users who appreciate versatility and style in their peripherals."
+  },
+  {
+    "item_id": 52984,
+    "item_type": "mouse",
+    "name": "Advanced RGB Gaming Mouse",
+    "price": 259.99,
+    "image_id": "Mouse_5.webp",
+    "description": "The Advanced RGB Gaming Mouse is designed for gamers who crave precision and style. Its sleek grey body is accented with customizable RGB lighting and intricate patterns, offering a unique aesthetic appeal. The high-performance optical sensor ensures accurate tracking and responsiveness, with adjustable DPI settings to suit your gaming needs. Ergonomically designed, the mouse provides a comfortable grip with textured sides to prevent slipping during intense gaming sessions. Programmable buttons allow for custom commands and macros, enhancing gameplay efficiency. Built with durable materials, this mouse is designed to withstand extensive use, making it an excellent choice for serious gamers looking to elevate their gaming experience."
+  },
+  {
+    "item_id": 64721,
+    "item_type": "mouse",
+    "name": "Chroma RGB Gaming Mouse",
+    "price": 269.99,
+    "image_id": "Mouse_6.jpg",
+    "description": "The Chroma RGB Gaming Mouse stands out with its stunning gradient color design and dynamic RGB lighting, perfect for gamers who love vibrant aesthetics. Its ergonomic shape fits comfortably in your hand, providing a firm grip and reducing fatigue during long gaming sessions. The high-precision optical sensor allows for quick and accurate movements, with customizable DPI settings to match your play style. Equipped with programmable buttons, this mouse offers enhanced control and flexibility, letting you configure macros and shortcuts for competitive gameplay. The durable matte finish resists fingerprints and scratches, ensuring it looks great even after extensive use. Ideal for gamers seeking both performance and style in their peripherals."
+  },
+  {
+    "item_id": 78349,
+    "item_type": "speaker",
+    "name": "Elegant Hi-Fi Speaker",
+    "price": 899.99,
+    "image_id": "Speaker_1.jpg",
+    "description": "The Elegant Hi-Fi Speaker is crafted for audiophiles who appreciate superior sound quality and refined design. Featuring a sophisticated wood grain finish, this speaker adds a touch of elegance to any room. The high-performance drivers deliver crystal-clear audio with deep, rich bass and crisp trebles, ensuring an immersive listening experience. With advanced acoustic technology, it provides balanced sound dispersion across all frequencies. The robust construction not only enhances durability but also minimizes vibrations for clear sound output. Ideal for both music and home theater applications, this speaker is compatible with various audio systems, making it a versatile addition to your entertainment setup."
+  },
+  {
+    "item_id": 49283,
+    "item_type": "speaker",
+    "name": "High-Fidelity Studio Speakers",
+    "price": 1299.99,
+    "image_id": "Speaker_2.jpg",
+    "description": "The High-Fidelity Studio Speakers are engineered for audio enthusiasts and professionals who demand exceptional sound clarity and depth. These speakers feature advanced acoustic technology, delivering powerful bass and clear treble for an immersive listening experience. The robust construction minimizes vibrations, ensuring precise sound reproduction. Ideal for studio setups, home theaters, or music lovers, they offer versatile connectivity options to integrate seamlessly with various audio equipment. The sleek black finish adds a modern touch to any setting, while the high-quality components guarantee durability and consistent performance. Perfect for those who value superior audio quality in their entertainment or professional environments."
+  },
+  {
+    "item_id": 68327,
+    "item_type": "speaker",
+    "name": "Premium Tower Speaker",
+    "price": 2499.99,
+    "image_id": "Speaker_3.webp",
+    "description": "The Premium Tower Speaker delivers an unparalleled audio experience with its state-of-the-art design and superior sound quality. Encased in a sophisticated wood-finish cabinet, this speaker complements any décor while providing robust performance. It features high-density connections for seamless integration with your home audio system. The advanced acoustic engineering ensures soft sound projection, allowing every note to be heard with clarity and precision. With multiple drivers, it offers a full range of sound, from deep bass to crisp highs. The sturdy construction minimizes vibration, ensuring pure sound reproduction. Ideal for audiophiles and home theater enthusiasts, this speaker elevates your listening experience to new heights."
+  },
+  {
+    "item_id": 76431,
+    "item_type": "speaker",
+    "name": "Modern Bass Subwoofer",
+    "price": 1799.99,
+    "image_id": "Speaker_4.jpg",
+    "description": "The Modern Bass Subwoofer is perfect for those who crave deep, immersive sound. Encased in a sleek black finish, this subwoofer is designed to blend seamlessly into any home audio setup. It delivers powerful bass that enriches your music, movies, and games with remarkable clarity. The high-efficiency driver and advanced acoustics ensure consistent performance across all volumes. Built with durable materials, it minimizes vibrations and distortion, providing a clean and precise sound output. Easy to integrate with existing audio systems, this subwoofer is ideal for enhancing the audio experience in any room. Perfect for audiophiles and home theater enthusiasts seeking to elevate their sound system."
+  },
+  {
+    "item_id": 85329,
+    "item_type": "speaker",
+    "name": "Vintage Style Bookshelf Speaker",
+    "price": 1199.99,
+    "image_id": "Speaker_5.jpg",
+    "description": "The Vintage Style Bookshelf Speaker combines classic aesthetics with modern audio technology, making it a perfect addition to any home. Encased in a retro-inspired green and copper finish, this speaker offers a unique visual appeal that complements both traditional and contemporary interiors. Despite its compact size, it delivers powerful, clear sound with deep bass and crisp highs, thanks to its high-quality drivers and acoustic engineering. Ideal for small to medium-sized rooms, it integrates seamlessly with a variety of audio systems, offering versatile connectivity options. This speaker is not only a functional audio device but also a stylish décor piece, perfect for music lovers and design enthusiasts."
+  },
+  {
+    "item_id": 94627,
+    "item_type": "speaker",
+    "name": "Classic Bookshelf Speaker",
+    "price": 1099.99,
+    "image_id": "Speaker_6.jpg",
+    "description": "The Classic Bookshelf Speaker is designed to deliver high-quality audio with an elegant touch. Encased in a dark wood finish, it complements any home décor while providing powerful, crystal-clear sound. Featuring advanced acoustic technology, this speaker ensures a balanced audio experience with rich bass and detailed treble. Its compact size makes it perfect for small spaces without compromising on performance. The speaker is equipped with versatile connectivity options, allowing seamless integration with various audio systems. Ideal for music enthusiasts and home theater setups, it offers both style and functionality, enhancing your listening experience with its superior sound quality."
+  }
+]

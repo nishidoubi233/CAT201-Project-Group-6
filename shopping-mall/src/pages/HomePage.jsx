@@ -1,13 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/HomePage.css';
+import itemData from '../data/item.json';
 
 const HomePage = () => {
   const categories = [
-    { id: 1, name: "Electronics", icon: "📱" },
-    { id: 2, name: "Fashion", icon: "👔" },
-    { id: 3, name: "Home & Living", icon: "🏠" },
-    { id: 4, name: "Sports", icon: "⚽" },
+    { id: 1, name: "Hard Drives", icon: "💽", path: "hard-drives" },
+    { id: 2, name: "Headphones", icon: "🎧", path: "headphones" },
+    { id: 3, name: "Keyboards", icon: "⌨️", path: "keyboards" },
+    { id: 4, name: "Monitors", icon: "🖥️", path: "monitors" },
+    { id: 5, name: "Mice", icon: "🖱️", path: "mice" },
+    { id: 6, name: "Speakers", icon: "🔊", path: "speakers" }
   ];
 
   // 使用ProductDetail中的商品数据
@@ -38,11 +41,18 @@ const HomePage = () => {
     }
   };
 
-  const discountItems = [
-    { id: 1, name: "Winter Coat", price: 99, originalPrice: 199, image: "https://via.placeholder.com/200x200" },
-    { id: 2, name: "Smart Watch", price: 29, originalPrice: 59, image: "https://via.placeholder.com/200x200" },
-    { id: 3, name: "Wireless Earbuds", price: 88, originalPrice: 126, image: "https://via.placeholder.com/200x200" },
-  ];
+  // 预先选定的折扣商品ID（这些ID是从item.json中随机选择的）
+  const discountItemIds = [78451, 59234, 94627]; // 分别是一个耳机、键盘和音箱
+
+  // 根据预选ID获取商品信息并添加折扣价
+  const discountItems = discountItemIds
+    .map(id => itemData.find(item => item.item_id === id))
+    .filter(Boolean) // 移除可能的undefined结果
+    .map(item => ({
+      ...item,
+      discountPrice: Math.round(item.price * 0.75 * 100) / 100, // 75%的原价，保留两位小数
+      imageUrl: `/images/${item.image_id}`
+    }));
 
   return (
     <div>
@@ -66,9 +76,13 @@ const HomePage = () => {
         <div className="top-section">
           <div className="categories-sidebar">
             {categories.map(category => (
-              <Link to={`/category/${category.id}`} key={category.id} className="category-item">
+              <Link 
+                to={`/category/${category.path}`} 
+                key={category.id} 
+                className="category-item"
+              >
                 <span className="category-icon">{category.icon}</span>
-                {category.name}
+                <span className="category-name">{category.name}</span>
               </Link>
             ))}
           </div>
@@ -77,13 +91,26 @@ const HomePage = () => {
             <h2>Special Offers</h2>
             <div className="discount-items">
               {discountItems.map(item => (
-                <Link to={`/product/${item.id}`} key={item.id} className="discount-item">
-                  <img src={item.image} alt={item.name} />
+                <Link 
+                  to={`/product/${item.item_id}`} 
+                  key={item.item_id} 
+                  className="discount-item"
+                >
+                  <div className="discount-image">
+                    <img 
+                      src={item.imageUrl} 
+                      alt={item.name}
+                      onError={(e) => {
+                        e.target.onerror = null; // 防止循环触发错误
+                        e.target.src = '/images/placeholder.jpg'; // 设置默认图片
+                      }}
+                    />
+                  </div>
                   <div className="item-info">
                     <h3>{item.name}</h3>
                     <div className="price-info">
-                      <span className="current-price">${item.price}</span>
-                      <span className="original-price">${item.originalPrice}</span>
+                      <span className="current-price">${item.discountPrice}</span>
+                      <span className="original-price">${item.price}</span>
                     </div>
                   </div>
                 </Link>

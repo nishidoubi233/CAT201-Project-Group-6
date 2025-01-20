@@ -73,6 +73,7 @@ header {
     display: flex;
     gap: 20px;
     margin-bottom: 30px;
+    height: 400px;
 }
 
 /* Category menu */
@@ -83,38 +84,58 @@ header {
     overflow: hidden;
     flex-shrink: 0;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .category-item {
     display: flex;
     align-items: center;
-    padding: 15px 20px;
+    padding: 16px 20px;
     text-decoration: none;
     color: #333;
     transition: all 0.2s;
     border-left: 3px solid transparent;
+    flex: 1;
 }
 
 .category-item:hover {
     background-color: #f8f9fa;
     border-left: 3px solid #FF4400;
+    color: #FF4400;
 }
 
 .category-icon {
-    margin-right: 10px;
-    font-size: 20px;
+    margin-right: 15px;
+    font-size: 22px;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+.category-name {
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+/* Special Offers section */
 .discount-section {
     flex: 1;
     background: linear-gradient(135deg, #fff6f2, #fff);
     border-radius: 8px;
     padding: 20px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .discount-section h2 {
-    margin: 0 0 20px 0;
+    margin: 0 0 15px 0;
     font-size: 20px;
     color: #333;
     padding-bottom: 10px;
@@ -122,17 +143,24 @@ header {
 }
 
 .discount-items {
+    flex: 1;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 15px;
+    padding: 5px;
 }
 
 .discount-item {
     background: white;
     border-radius: 8px;
-    padding: 10px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
     transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .discount-item:hover {
@@ -140,27 +168,57 @@ header {
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-.discount-item img {
+.discount-image {
+    position: relative;
+    padding-top: 60%;
+}
+
+.discount-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    border-radius: 8px;
+    height: 100%;
+    object-fit: cover;
+}
+
+.item-info {
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+}
+
+.item-info h3 {
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 8px;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .price-info {
     display: flex;
-    gap: 10px;
     align-items: center;
+    gap: 8px;
+    margin-top: auto;
 }
 
 .current-price {
     color: #FF4400;
-    font-weight: bold;
     font-size: 18px;
+    font-weight: bold;
 }
 
 .original-price {
     color: #999;
     text-decoration: line-through;
-    font-size: 14px;
+    font-size: 13px;
 }
 
 .recommended-section {
