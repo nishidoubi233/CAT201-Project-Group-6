@@ -6,3 +6,11 @@
     "image_id": "这里输入商品图片的id,对应所上传的图片的名称",
     "description": "这里输入商品描述，可以输入商品的详细信息，比如商品的材质, 尺寸,颜色,产地,品牌,等等,最好长一些,生成至少150字"
 }
+{
+    "item_id": 48293,
+    "item_type": "hard drive",
+    "name": "Sleek Portable Hard Drive",
+    "price": 299.99,
+    "image_id": "Hard Drive_1.webp",
+    "description": "This sleek portable hard drive is designed for those who need to take large amounts of data on the go. Encased in a brushed aluminum shell, it offers both durability and a sophisticated look. With a USB 3.0 interface, it ensures high-speed data transfer, making it ideal for backing up important files quickly. The compact design allows it to fit easily into any bag or pocket, making it perfect for travel. Its shockproof technology protects your data from accidental drops and bumps. Compatible with both Windows and Mac systems, it offers versatility for different users. This hard drive is an essential tool for photographers, videographers, and anyone needing reliable storage."
+}
