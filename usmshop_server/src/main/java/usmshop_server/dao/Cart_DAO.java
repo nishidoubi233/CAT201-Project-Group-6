@@ -95,10 +95,10 @@ public class Cart_DAO {
             e.printStackTrace();
         }
         
-        // SQL数据库连接信息
-        String url = "jdbc:mysql://localhost:3306/usmshop?useSSL=false&characterEncoding=UTF-8";
+        // 远程SQL数据库连接信息
+        String url = "jdbc:mysql://47.79.98.152:3306/shopping_data?useSSL=false&characterEncoding=UTF-8";
         String user = "root";
-        String password = "123456";
+        String password = "Chan771008";
         return DriverManager.getConnection(url, user, password);
     }
 
