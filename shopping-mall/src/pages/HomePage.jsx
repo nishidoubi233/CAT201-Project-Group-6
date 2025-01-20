@@ -19,8 +19,29 @@ const HomePage = () => {
   // 59234 - RGB Mechanical Gaming Keyboard
   // 94627 - Classic Bookshelf Speaker
 
-  // 预先选定的推荐商品ID - 使用其他商品
-  const recommendItemIds = [63928, 52713, 47985, 85329];  // 使用其他耳机、键盘和音箱
+  
+ // other item ids
+  const recommendItemIds = [
+    48293, 74638, 58247, 91457, 67342, 83562,  // Hard Drives
+    63928, 52713, 46219, 31567, 47985,         // Headphones
+    74829, 83627, 92547, 47392, 58641, 76258,  // Keyboards
+    76154, 83492, 94276, 54862, 67284, 39751,  // Monitors
+    58239, 61345, 47192, 38562, 52984, 64721,  // Mouse
+    78349, 49283, 68327, 76431, 85329,         // Speakers
+  ]  // 使用其他耳机、键盘和音箱
+
+  // 获取随机推荐商品ID
+  const getRandomRecommendItemIds = () => {
+    const randomIds = [];
+    const availableIds = [...recommendItemIds]; // 创建一个副本以避免修改原数组
+    
+    while (randomIds.length < 4 && availableIds.length > 0) {
+      const randomIndex = Math.floor(Math.random() * availableIds.length);
+      randomIds.push(availableIds[randomIndex]);
+      availableIds.splice(randomIndex, 1); // 移除已选择的ID
+    }
+    return randomIds;
+  };
 
   // 获取折扣商品信息
   const discountItems = discountItemIds
@@ -31,8 +52,8 @@ const HomePage = () => {
       discountPrice: Math.round(item.price * 0.75 * 100) / 100
     }));
 
-  // 获取推荐商品信息
-  const recommendItems = recommendItemIds
+  // 获取推荐商品信息 - 使用随机生成的ID
+  const recommendItems = getRandomRecommendItemIds()  // 调用函数获取随机ID
     .map(id => itemData.find(item => item.item_id === id))
     .filter(Boolean);
 
