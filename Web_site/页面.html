@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品列表 - 主页面</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        /* 顶部导航栏 */
+        .header {
+            background-color: #ffcc00;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* 登录按钮 */
+        .login-btn {
+            background-color: #ffcc00;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+
+        .login-btn:hover {
+            background-color: #e6b800;
+        }
+
+        /* 搜索栏 */
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+            background-color: #fff;
+            margin: 0 20px;
+        }
+
+        .search-bar input {
+            width: 80%;
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+        }
+
+        /* 分类导航菜单 */
+        .category-menu {
+            background-color: #fff;
+            margin-top: 20px;
+            padding: 10px;
+            display: flex;
+            justify-content: space-around;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .category-menu a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .category-menu a:hover {
+            background-color: #ffcc00;
+            color: white;
+        }
+
+        /* 促销横幅 */
+        .promotion-banner {
+            background-color: #fff;
+            margin-top: 20px;
+            padding: 20px;
+            text-align: center;
+            font-size: 20px;
+            color: #ffcc00;
+            font-weight: bold;
+        }
+
+        /* 商品列表 */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+            padding: 10px;
+        }
+
+        /* 商品项 */
+        .product-item {
+            background-color: white;
+            margin: 10px;
+            border-radius: 8px;
+            padding: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 250px;
+            transition: transform 0.2s;
+        }
+
+        .product-item:hover {
+            transform: scale(1.05);
+        }
+
+        .product-item img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .product-item h4 {
+            margin-top: 10px;
+            font-size: 18px;
+        }
+
+        .product-item p {
+            color: #888;
+            font-size: 14px;
+        }
+
+        .product-item .price {
+            color: #ffcc00;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .product-item .rating {
+            margin-top: 10px;
+        }
+
+        .product-item .rating span {
+            color: #ffcc00;
+            font-size: 18px;
+        }
+
+        .product-item a {
+            display: inline-block;
+            background-color: #ffcc00;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+
+        .product-item a:hover {
+            background-color: #e6b800;
+        }
+
+        /* 页脚 */
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* 分页样式 */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .pagination button {
+            background-color: #ffcc00;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+
+        .pagination button:hover {
+            background-color: #e6b800;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 顶部导航栏 -->
+    <div class="header">
+        <div>商品列表</div>
+        <a href="#" class="login-btn">登录</a>
+    </div>
+
+    <!-- 搜索栏 -->
+    <div class="search-bar">
+        <input type="text" placeholder="请输入商品名称或关键词" />
+    </div>
+
+    <!-- 分类导航菜单 -->
+    <div class="category-menu">
+        <a href="#" onclick="showCategory('手机')">手机</a>
+        <a href="#" onclick="showCategory('数码')">数码</a>
+        <a href="#" onclick="showCategory('家电')">家电</a>
+        <a href="#" onclick="showCategory('服饰')">服饰</a>
+        <a href="#" onclick="showCategory('运动')">运动</a>
+        <a href="#" onclick="showCategory('汽车')">汽车</a>
+    </div>
+
+    <!-- 促销横幅 -->
+    <div class="promotion-banner">
+        <p>超值优惠！限时特价商品</p>
+    </div>
+
+    <!-- 商品列表 -->
+    <div class="container" id="product-container">
+        <!-- 商品项通过 JavaScript 动态加载 -->
+    </div>
+
+    <!-- 分页 -->
+    <div class="pagination" id="pagination-container">
+        <!-- 分页按钮通过 JavaScript 动态生成 -->
+    </div>
+
+    <!-- 页脚 -->
+    <div class="footer">
+        <p>© 2025 购物平台. All rights reserved.</p>
+        <a href="#">隐私政策</a>
+        <a href="#">使用条款</a>
+        <a href="#">联系我们</a>
+    </div>
+
+    <script>
+        // 模拟商品数据
+        const products = {
+            手机: [
+                { name: '苹果 iPhone 13', price: '￥6999', image: 'https://via.placeholder.com/250x250?text=Apple+iPhone+13', rating: 4.5 },
+                { name: '华为 P40 Pro', price: '￥4988', image: 'https://via.placeholder.com/250x250?text=Huawei+P40+Pro', rating: 4.0 },
+            ],
+            数码: [
+                { name: '索尼耳机 WH-1000XM4', price: '￥2499', image: 'https://via.placeholder.com/250x250?text=Sony+Headphones+WH-1000XM4', rating: 4.7 },
+                { name: '佳能 EOS 90D', price: '￥9499', image: 'https://via.placeholder.com/250x250?text=Canon+EOS+90D', rating: 4.3 },
+            ],
+            // 可以继续添加其他商品类别...
+        };
+
+        let currentCategory = '手机'; // 默认类别
+        let currentPage = 1; // 默认页码
+
+        // 每页显示的商品数量
+        const productsPerPage = 4;
+
+        // 默认显示商品
+        showCategory(currentCategory);
+
+        // 根据类别显示商品
+        function showCategory(category) {
+            currentCategory = category;
+            currentPage = 1; // 每次切换类别时从第一页开始
+            const container = document.getElementById('product-container');
+            container.innerHTML = ''; // 清空商品列表
+
+            const categoryProducts = products[category];
+            const start = (currentPage - 1) * productsPerPage;
+            const end = currentPage * productsPerPage;
+            const paginatedProducts = categoryProducts.slice(start, end);
+
+            paginatedProducts.forEach(product => {
+                const productItem = document.createElement('div');
+                productItem.className = 'product-item';
+
+                productItem.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}">
+                    <h4>${product.name}</h4>
+                    <p class="price">${product.price}</p>
+                    <div class="rating">
+                        <span>⭐⭐⭐⭐⭐</span> (${product.rating})
+                    </div>
+                    <a href="#product-detail">查看详情</a>
+                `;
+
+                container.appendChild(productItem);
+            });
+
+            // 更新分页
+            updatePagination(categoryProducts.length);
+        }
+
+        // 更新分页
+        function updatePagination(totalProducts) {
+            const paginationContainer = document.getElementById('pagination-container');
+            paginationContainer.innerHTML = '';
+
+            const totalPages = Math.ceil(totalProducts / productsPerPage);
+
+            for (let i = 1; i <= totalPages; i++) {
+                const button = document.createElement('button');
+                button.textContent = i;
+                button.onclick = () => changePage(i);
+                paginationContainer.appendChild(button);
+            }
+        }
+
+        // 改变页码
+        function changePage(page) {
+            currentPage = page;
+            showCategory(currentCategory);
+        }
+    </script>
+
+</body>
+</html>
