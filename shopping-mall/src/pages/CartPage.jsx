@@ -1,10 +1,12 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import { useCart } from '../context/CartContext';
 import '../styles/CartPage.css';
 
 const CartPage = () => {
   const { cartItems, removeFromCart, updateQuantity } = useCart();
+  const navigate = useNavigate();
   
   const calculateTotal = () => {
     return cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
@@ -53,7 +55,7 @@ const CartPage = () => {
         </div>
 
         <div id="sum_area">
-          <div id="pay">Checkout</div>
+          <div id="pay" onClick={() => navigate('/checkout')}>Checkout</div>
           <div id="pay_amout">
             Total: RM<span id="price_num">{calculateTotal().toFixed(2)}</span>
           </div>

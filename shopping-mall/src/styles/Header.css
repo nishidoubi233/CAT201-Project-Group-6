@@ -1,3 +1,8 @@
+.header {
+  background-color: #fff;
+  border-bottom: 1px solid #e8e8e8;
+}
+
 .header-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -13,6 +18,15 @@
   font-size: 20px;
   text-decoration: none;
   font-weight: bold;
+  background: none;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  border: none;
+  box-shadow: none;
+  display: inline-block;
+  overflow: visible;
+  line-height: normal;
 }
 
 .search-container {
@@ -60,4 +74,44 @@
 
 .login:hover, .cart:hover {
   background-color: rgba(0,0,0,0.1);
+}
+
+/* 购物车数量标记 */
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #ff6700;
+  color: white;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 10px;
+  min-width: 16px;
+  text-align: center;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .header-container {
+    height: 60px;
+    padding: 0 10px;
+  }
+
+  .logo {
+    font-size: 20px;
+    padding: 0 10px;
+  }
+
+  .search-box {
+    max-width: 200px;
+    margin: 0 10px;
+  }
+
+  .search-button {
+    width: 50px;
+  }
+
+  .action-link span {
+    display: none;
+  }
 } 
