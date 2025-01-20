@@ -38,4 +38,11 @@
     "image_id": "Hard Drive_4.png",
     "description": "The Futuristic Dual-Port Hard Drive offers a cutting-edge design and exceptional performance for tech-savvy users. Encased in a sleek, matte black finish, this hard drive combines aesthetics with functionality. It features an innovative cooling mechanism at the center, highlighted by an LED-lit ring, ensuring optimal performance during extended usage. Equipped with dual USB 3.1 ports, it supports high-speed data transfers, making it ideal for large multimedia files and backups. Its robust build ensures durability while maintaining a lightweight profile for easy portability. Compatible with both Windows and Mac systems, it caters to a wide range of users. This hard drive is perfect for creative professionals and tech enthusiasts looking for a reliable, stylish storage solution."
 }
-
+{
+    "item_id": 67342,
+    "item_type": "hard drive",
+    "name": "Classic Portable Hard Drive",
+    "price": 259.99,
+    "image_id": "Hard Drive_5.jpg",
+    "description": "The Classic Portable Hard Drive delivers reliable storage in a timeless design. Featuring a sturdy black casing, it provides excellent protection for your data while maintaining a sleek appearance. The hard drive is equipped with multiple ports, including USB and eSATA, offering versatile connectivity options for fast data transfers. Its compact design ensures it fits easily into any travel bag, making it an ideal companion for on-the-go storage needs. Compatible with both Windows and Mac operating systems, it offers flexibility for various users. The durable build ensures longevity, while the matte finish resists fingerprints and scratches. Perfect for students, professionals, or anyone requiring dependable storage, this hard drive combines functionality with classic style."
+}
