@@ -52,6 +52,11 @@ public class RegisterHandler implements HttpHandler {
             LOGGER.log(Level.SEVERE, "Registration error", e);
             sendResponse(exchange, 500, "服务器错误：" + e.getMessage());
         }
+
+        // 添加 CORS 头
+        exchange.getResponseHeaders().set("Access-Control-Allow-Origin", "http://localhost:5173"); // Vite 默认端口
+        exchange.getResponseHeaders().set("Access-Control-Allow-Methods", "POST, GET, OPTIONS");
+        exchange.getResponseHeaders().set("Access-Control-Allow-Headers", "Content-Type");
     }
 
     private boolean isUserExists(String username, String email) {
