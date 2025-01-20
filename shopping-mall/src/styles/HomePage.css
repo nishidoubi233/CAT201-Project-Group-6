@@ -376,4 +376,82 @@ header {
 
 body {
     background-color: #f5f5f5;
+}
+
+/* Recommendation section */
+.recommendation-section {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+}
+
+.recommendation-section h2 {
+    margin: 0 0 20px 0;
+    font-size: 20px;
+    color: #333;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.recommendation-items {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.recommendation-item {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.recommendation-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.recommendation-image {
+    position: relative;
+    padding-top: 100%;
+    background: #f5f5f5;
+}
+
+.recommendation-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.recommendation-item .item-info {
+    padding: 15px;
+}
+
+.recommendation-item h3 {
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 8px;
+    line-height: 1.3;
+    /* 多行文本截断 */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 2.6em;  /* 2倍行高作为后备方案 */
+}
+
+.recommendation-item .price-info {
+    color: #FF4400;
+    font-size: 18px;
+    font-weight: bold;
 } 

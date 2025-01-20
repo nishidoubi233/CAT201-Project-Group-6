@@ -53,7 +53,7 @@
     "name": "Wireless Ergonomic Earbuds",
     "price": 199.99,
     "image_id": "Headphones_1.png",
-    "description": "The Wireless Ergonomic Earbuds offer a seamless listening experience combined with cutting-edge design and comfort. Featuring a sleek black finish with metallic accents, these earbuds are crafted for both style and functionality. They boast advanced Bluetooth connectivity, ensuring a stable and quick connection to your devices. The ergonomic design provides a secure fit, making them ideal for workouts, travel, or everyday use. With noise isolation technology, you can enjoy immersive sound quality without external distractions. A long-lasting battery ensures extended playtime, and the included charging case offers convenient power on the go. These earbuds are compatible with both Android and iOS devices, providing versatile use across platforms. Perfect for music lovers and active individuals, they deliver exceptional audio performance and comfort."
+    "description": "Premium wireless earbuds with ergonomic design"
   },
   {
     "item_id": 63928,
@@ -101,7 +101,7 @@
     "name": "RGB Mechanical Gaming Keyboard",
     "price": 459.99,
     "image_id": "Keyboard_1.webp",
-    "description": "The RGB Mechanical Gaming Keyboard is designed for gamers who demand precision and style. Featuring a robust build with high-quality mechanical switches, this keyboard offers tactile feedback and durability for intense gaming sessions. Each key is individually backlit with customizable RGB lighting, allowing you to personalize your setup with vibrant colors and effects. The ergonomic design ensures comfortable use over extended periods, with adjustable stands to suit your typing angle. Equipped with anti-ghosting and N-key rollover, it ensures every keystroke is registered accurately, providing a competitive edge in gaming. The keyboard's sleek, modern design is complemented by a brushed metal finish, enhancing its aesthetic appeal. Perfect for gaming enthusiasts seeking both performance and visual flair."
+    "description": "Professional gaming keyboard with RGB backlight"
   },
   {
     "item_id": 74829,
@@ -293,6 +293,6 @@
     "name": "Classic Bookshelf Speaker",
     "price": 1099.99,
     "image_id": "Speaker_6.jpg",
-    "description": "The Classic Bookshelf Speaker is designed to deliver high-quality audio with an elegant touch. Encased in a dark wood finish, it complements any home décor while providing powerful, crystal-clear sound. Featuring advanced acoustic technology, this speaker ensures a balanced audio experience with rich bass and detailed treble. Its compact size makes it perfect for small spaces without compromising on performance. The speaker is equipped with versatile connectivity options, allowing seamless integration with various audio systems. Ideal for music enthusiasts and home theater setups, it offers both style and functionality, enhancing your listening experience with its superior sound quality."
+    "description": "High-fidelity bookshelf speaker with classic design"
   }
 ]

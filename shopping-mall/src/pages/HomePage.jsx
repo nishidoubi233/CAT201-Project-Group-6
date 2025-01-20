@@ -9,50 +9,32 @@ const HomePage = () => {
     { id: 2, name: "Headphones", icon: "🎧", path: "headphones" },
     { id: 3, name: "Keyboards", icon: "⌨️", path: "keyboards" },
     { id: 4, name: "Monitors", icon: "🖥️", path: "monitors" },
-    { id: 5, name: "Mice", icon: "🖱️", path: "mice" },
+    { id: 5, name: "Mouse", icon: "🖱️", path: "mouse" },
     { id: 6, name: "Speakers", icon: "🔊", path: "speakers" }
   ];
 
-  // 使用ProductDetail中的商品数据
-  const recommendedProducts = {
-    1: {
-      name: "Metal Thermos",
-      price: 49.9,
-      description: "Premium stainless steel, 24-hour temperature retention",
-      image: "https://via.placeholder.com/600x600?text=Product+1"
-    },
-    2: {
-      name: "Vintage Watch",
-      price: 69.9,
-      description: "Classic mechanical movement, stainless steel band",
-      image: "https://via.placeholder.com/600x600?text=Product+2"
-    },
-    3: {
-      name: "Bluetooth Speaker",
-      price: 39.9,
-      description: "Wireless connectivity, premium sound quality",
-      image: "https://via.placeholder.com/600x600?text=Product+3"
-    },
-    4: {
-      name: "Digital Notebook",
-      price: 89.9,
-      description: "Smart handwriting recognition, cloud sync",
-      image: "https://via.placeholder.com/600x600?text=Product+4"
-    }
-  };
+  // 预先选定的折扣商品ID - 使用这三个特定商品
+  const discountItemIds = [78451, 59234, 94627];  // 这三个ID对应：
+  // 78451 - Wireless Ergonomic Earbuds
+  // 59234 - RGB Mechanical Gaming Keyboard
+  // 94627 - Classic Bookshelf Speaker
 
-  // 预先选定的折扣商品ID（这些ID是从item.json中随机选择的）
-  const discountItemIds = [78451, 59234, 94627]; // 分别是一个耳机、键盘和音箱
+  // 预先选定的推荐商品ID - 使用其他商品
+  const recommendItemIds = [63928, 52713, 47985, 85329];  // 使用其他耳机、键盘和音箱
 
-  // 根据预选ID获取商品信息并添加折扣价
+  // 获取折扣商品信息
   const discountItems = discountItemIds
     .map(id => itemData.find(item => item.item_id === id))
-    .filter(Boolean) // 移除可能的undefined结果
+    .filter(Boolean)
     .map(item => ({
       ...item,
-      discountPrice: Math.round(item.price * 0.75 * 100) / 100, // 75%的原价，保留两位小数
-      imageUrl: `/images/${item.image_id}`
+      discountPrice: Math.round(item.price * 0.75 * 100) / 100
     }));
+
+  // 获取推荐商品信息
+  const recommendItems = recommendItemIds
+    .map(id => itemData.find(item => item.item_id === id))
+    .filter(Boolean);
 
   return (
     <div>
@@ -98,19 +80,19 @@ const HomePage = () => {
                 >
                   <div className="discount-image">
                     <img 
-                      src={item.imageUrl} 
+                      src={`/images/${item.image_id}`} 
                       alt={item.name}
                       onError={(e) => {
-                        e.target.onerror = null; // 防止循环触发错误
-                        e.target.src = '/images/placeholder.jpg'; // 设置默认图片
+                        e.target.onerror = null;
+                        e.target.src = '/images/placeholder.jpg';
                       }}
                     />
                   </div>
                   <div className="item-info">
                     <h3>{item.name}</h3>
                     <div className="price-info">
-                      <span className="current-price">${item.discountPrice}</span>
-                      <span className="original-price">${item.price}</span>
+                      <span className="current-price">RM{item.discountPrice}</span>
+                      <span className="original-price">RM{item.price}</span>
                     </div>
                   </div>
                 </Link>
@@ -119,18 +101,30 @@ const HomePage = () => {
           </div>
         </div>
 
-        <div className="recommended-section">
+        <div className="recommendation-section">
           <h2>Recommended For You</h2>
-          <div className="recommended-grid">
-            {Object.entries(recommendedProducts).map(([id, product]) => (
-              <Link to={`/product/${id}`} key={id} className="product-card">
-                <div className="product-image">
-                  <img src={product.image} alt={product.name} />
+          <div className="recommendation-items">
+            {recommendItems.map(item => (
+              <Link 
+                to={`/product/${item.item_id}`} 
+                key={item.item_id} 
+                className="recommendation-item"
+              >
+                <div className="recommendation-image">
+                  <img 
+                    src={`/images/${item.image_id}`} 
+                    alt={item.name}
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = '/images/placeholder.jpg';
+                    }}
+                  />
                 </div>
-                <div className="product-info">
-                  <h3>{product.name}</h3>
-                  <p className="description">{product.description}</p>
-                  <p className="price">${product.price}</p>
+                <div className="item-info">
+                  <h3>{item.name}</h3>
+                  <div className="price-info">
+                    <span className="current-price">RM{item.price}</span>
+                  </div>
                 </div>
               </Link>
             ))}

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import Header from '../components/Header';
 import itemData from '../data/item.json';
 import '../styles/CategoryPage.css';
 
@@ -10,29 +11,29 @@ const CategoryPage = () => {
 
   useEffect(() => {
     // 将类别名称映射到item_type
-    const categoryToType = {
+    const categoryMap = {
       'hard-drives': 'hard drive',
       'headphones': 'headphone',
       'keyboards': 'keyboard',
       'monitors': 'monitor',
-      'mice': 'mouse',
+      'mouse': 'mouse',
       'speakers': 'speaker'
     };
 
-    const type = categoryToType[category];
+    const type = categoryMap[category];
     if (type) {
       const filteredProducts = itemData.filter(item => item.item_type === type);
       setProducts(filteredProducts);
       // 格式化显示名称
-      const displayNames = {
+      const categoryDisplayNames = {
         'hard-drives': 'Hard Drives',
         'headphones': 'Headphones',
         'keyboards': 'Keyboards',
         'monitors': 'Monitors',
-        'mice': 'Mice',
+        'mouse': 'Mouse',
         'speakers': 'Speakers'
       };
-      setCategoryName(displayNames[category] || category);
+      setCategoryName(categoryDisplayNames[category] || category);
     }
   }, [category]);
 
@@ -48,25 +49,28 @@ const CategoryPage = () => {
   }
 
   return (
-    <div className="category-page">
-      <div className="category-header">
-        <h1>{categoryName}</h1>
-        <p>{products.length} products found</p>
-      </div>
+    <div>
+      <Header />
+      <div className="category-page">
+        <div className="category-header">
+          <h1>{categoryName}</h1>
+          <p>{products.length} products found</p>
+        </div>
 
-      <div className="products-grid">
-        {products.map(product => (
-          <Link to={`/product/${product.item_id}`} key={product.item_id} className="product-card">
-            <div className="product-image">
-              <img src={`/images/${product.image_id}`} alt={product.name} />
-            </div>
-            <div className="product-info">
-              <h3>{product.name}</h3>
-              <p className="description">{product.description.slice(0, 100)}...</p>
-              <p className="price">${product.price}</p>
-            </div>
-          </Link>
-        ))}
+        <div className="products-grid">
+          {products.map(product => (
+            <Link to={`/product/${product.item_id}`} key={product.item_id} className="product-card">
+              <div className="product-image">
+                <img src={`/images/${product.image_id}`} alt={product.name} />
+              </div>
+              <div className="product-info">
+                <h3>{product.name}</h3>
+                <p className="description">{product.description.slice(0, 100)}...</p>
+                <p className="price">RM{product.price}</p>
+              </div>
+            </Link>
+          ))}
+        </div>
       </div>
     </div>
   );
