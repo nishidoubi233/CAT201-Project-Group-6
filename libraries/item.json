@@ -215,3 +215,11 @@
     "image_id": "Mouse_1.png",
     "description": "The Precision Gaming Mouse is designed for gamers who demand accuracy and speed. Featuring a sleek, ergonomic design, it fits comfortably in your hand, reducing fatigue during long gaming sessions. The mouse boasts high-precision optical sensors that provide smooth tracking and pinpoint accuracy. Customizable buttons and DPI settings allow you to tailor the performance to your gaming style. The durable braided cable ensures longevity and minimal drag, while the customizable RGB lighting adds a personal touch to your setup. Crafted with high-quality materials, this mouse is built to withstand intense gaming action, making it an essential tool for any serious gamer."
 }
+{
+    "item_id": 61345,
+    "item_type": "mouse",
+    "name": "Ergonomic RGB Gaming Mouse",
+    "price": 329.99,
+    "image_id": "Mouse_2.png",
+    "description": "The Ergonomic RGB Gaming Mouse is tailored for gamers who seek both style and functionality. With a sleek black finish accented by vibrant RGB lighting, this mouse stands out in any gaming setup. It features an ergonomic design that fits comfortably in your hand, reducing strain during extended gaming sessions. The high-precision optical sensor offers customizable DPI settings for optimal sensitivity and accuracy. Programmable buttons provide additional control, allowing you to configure macros and shortcuts to enhance your gameplay. The durable build quality ensures long-lasting performance, while the braided cable minimizes drag. This mouse is an essential tool for gamers looking to elevate their gaming experience."
+}
