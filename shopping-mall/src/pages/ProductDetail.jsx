@@ -3,11 +3,13 @@ import { useParams, Link } from 'react-router-dom';
 import Header from '../components/Header';
 import itemData from '../data/item.json';
 import '../styles/ProductDetail.css';
+import { useCart } from '../context/CartContext';
 
 const ProductDetail = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [relatedProducts, setRelatedProducts] = useState([]);
+  const { addToCart } = useCart();
 
   useEffect(() => {
     // 从JSON文件中查找对应ID的商品
@@ -29,6 +31,11 @@ const ProductDetail = () => {
   if (!product) {
     return <div>Loading...</div>;
   }
+
+  const handleAddToCart = () => {
+    addToCart(product);
+    alert('Product added to cart successfully!');
+  };
 
   return (
     <div>
@@ -60,7 +67,7 @@ const ProductDetail = () => {
               </div>
             </div>
 
-            <button className="add-to-cart">Add to Cart</button>
+            <button className="add-to-cart" onClick={handleAddToCart}>Add to Cart</button>
           </div>
         </div>
 
