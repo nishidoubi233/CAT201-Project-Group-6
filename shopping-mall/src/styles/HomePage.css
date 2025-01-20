@@ -191,15 +191,17 @@ header {
 }
 
 .item-info h3 {
-    margin: 0;
-    font-size: 14px;
+    margin: 0 0 10px;
+    font-size: 16px;
     color: #333;
-    margin-bottom: 8px;
-    line-height: 1.3;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
     overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    max-height: 2.6em;
+    line-height: 1.3;
 }
 
 .price-info {
@@ -274,10 +276,13 @@ header {
     margin: 8px 0;
     font-size: 14px;
     color: #666;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
     overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    max-height: 2.8em;
     line-height: 1.4;
 }
 
@@ -399,16 +404,19 @@ body {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
+    margin-top: 20px;
 }
 
 .recommendation-item {
-    background: white;
+    background: #fff;
+    padding: 20px;
     border-radius: 8px;
-    overflow: hidden;
     text-decoration: none;
     color: inherit;
+    display: flex;
+    flex-direction: column;
     transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
 .recommendation-item:hover {
@@ -417,41 +425,47 @@ body {
 }
 
 .recommendation-image {
-    position: relative;
-    padding-top: 100%;
-    background: #f5f5f5;
+    width: 100%;
+    height: 200px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .recommendation-image img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
 }
 
-.recommendation-item .item-info {
-    padding: 15px;
+.item-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 
-.recommendation-item h3 {
-    margin: 0;
-    font-size: 14px;
+.item-info h3 {
+    margin: 0 0 10px;
+    font-size: 16px;
     color: #333;
-    margin-bottom: 8px;
-    line-height: 1.3;
-    /* 多行文本截断 */
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-height: 2.6em;  /* 2倍行高作为后备方案 */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    max-height: 2.6em;
+    line-height: 1.3;
 }
 
-.recommendation-item .price-info {
-    color: #FF4400;
+.price-info {
+    margin-top: auto;
+    text-align: center;
+}
+
+.current-price {
+    color: #ff6700;
     font-size: 18px;
     font-weight: bold;
 } 
