@@ -1,0 +1,8 @@
+{
+    "item_id": 0,
+    "item_type": "这里输入商品类型,string格式,比如mouse,keyboard,monitor,headphone,etc",
+    "name": "这里输入商品名称,string格式",
+    "price": 100,
+    "image_id": "这里输入商品图片的id,对应所上传的图片的名称",
+    "description": "这里输入商品描述，可以输入商品的详细信息，比如商品的材质, 尺寸,颜色,产地,品牌,等等,最好长一些,生成至少150字"
+}
