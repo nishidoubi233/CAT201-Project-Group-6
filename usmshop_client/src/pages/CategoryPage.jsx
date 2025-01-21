@@ -50,7 +50,7 @@ const CategoryPage = () => {
   }
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+    <div>
       <Header />
       <div className="category-page">
         <div className="category-header">
