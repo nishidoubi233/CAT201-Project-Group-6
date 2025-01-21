@@ -17,6 +17,26 @@
         <url-pattern>/api/auth</url-pattern>
     </servlet-mapping>
     
+    <!-- User Servlet -->
+    <servlet>
+        <servlet-name>UserServlet</servlet-name>
+        <servlet-class>usmshop_server.controller.User_Servlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserServlet</servlet-name>
+        <url-pattern>/api/user</url-pattern>
+    </servlet-mapping>
+    
+    <!-- Cart Servlet -->
+    <servlet>
+        <servlet-name>CartServlet</servlet-name>
+        <servlet-class>usmshop_server.controller.Cart_Servlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CartServlet</servlet-name>
+        <url-pattern>/api/cart</url-pattern>
+    </servlet-mapping>
+    
     <!-- CORS Filter -->
     <filter>
         <filter-name>CORSFilter</filter-name>
