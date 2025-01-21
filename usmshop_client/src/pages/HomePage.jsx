@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/HomePage.css';
 import itemData from '../data/item.json';
+import Header from '../components/Header';
 
 const HomePage = () => {
   const categories = [
@@ -59,47 +60,65 @@ const HomePage = () => {
 
   return (
     <div>
-      <header>
-        <div className="header-container">
-          <div className="logo">USMSHOP</div>
-          <div className="search-container">
-            <div className="search-box">
-              <input type="text" placeholder="Search" className="search-input" />
-              <button type="submit" className="search-button">Search</button>
+      <Header />
+      <div className="home-page">
+        <main className="main-content">
+          <div className="top-section">
+            <div className="categories-sidebar">
+              {categories.map(category => (
+                <Link 
+                  to={`/category/${category.path}`} 
+                  key={category.id} 
+                  className="category-item"
+                >
+                  <span className="category-icon">{category.icon}</span>
+                  <span className="category-name">{category.name}</span>
+                </Link>
+              ))}
+            </div>
+
+            <div className="discount-section">
+              <h2>Special Offers</h2>
+              <div className="discount-items">
+                {discountItems.map(item => (
+                  <Link 
+                    to={`/product/${item.item_id}`} 
+                    key={item.item_id} 
+                    className="discount-item"
+                  >
+                    <div className="discount-image">
+                      <img 
+                        src={`/images/${item.image_id}`} 
+                        alt={item.name}
+                        onError={(e) => {
+                          e.target.onerror = null;
+                          e.target.src = '/images/placeholder.jpg';
+                        }}
+                      />
+                    </div>
+                    <div className="item-info">
+                      <h3>{item.name}</h3>
+                      <div className="price-info">
+                        <span className="current-price">RM{item.discountPrice}</span>
+                        <span className="original-price">RM{item.price}</span>
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
-          <div className="user-actions">
-            <Link to="/login" className="login">Login</Link>
-            <Link to="/cart" className="cart">Cart</Link>
-          </div>
-        </div>
-      </header>
 
-      <main className="main-content">
-        <div className="top-section">
-          <div className="categories-sidebar">
-            {categories.map(category => (
-              <Link 
-                to={`/category/${category.path}`} 
-                key={category.id} 
-                className="category-item"
-              >
-                <span className="category-icon">{category.icon}</span>
-                <span className="category-name">{category.name}</span>
-              </Link>
-            ))}
-          </div>
-
-          <div className="discount-section">
-            <h2>Special Offers</h2>
-            <div className="discount-items">
-              {discountItems.map(item => (
+          <div className="recommendation-section">
+            <h2>Recommended For You</h2>
+            <div className="recommendation-items">
+              {recommendItems.map(item => (
                 <Link 
                   to={`/product/${item.item_id}`} 
                   key={item.item_id} 
-                  className="discount-item"
+                  className="recommendation-item"
                 >
-                  <div className="discount-image">
+                  <div className="recommendation-image">
                     <img 
                       src={`/images/${item.image_id}`} 
                       alt={item.name}
@@ -112,46 +131,15 @@ const HomePage = () => {
                   <div className="item-info">
                     <h3>{item.name}</h3>
                     <div className="price-info">
-                      <span className="current-price">RM{item.discountPrice}</span>
-                      <span className="original-price">RM{item.price}</span>
+                      <span className="current-price">RM{item.price}</span>
                     </div>
                   </div>
                 </Link>
               ))}
             </div>
           </div>
-        </div>
-
-        <div className="recommendation-section">
-          <h2>Recommended For You</h2>
-          <div className="recommendation-items">
-            {recommendItems.map(item => (
-              <Link 
-                to={`/product/${item.item_id}`} 
-                key={item.item_id} 
-                className="recommendation-item"
-              >
-                <div className="recommendation-image">
-                  <img 
-                    src={`/images/${item.image_id}`} 
-                    alt={item.name}
-                    onError={(e) => {
-                      e.target.onerror = null;
-                      e.target.src = '/images/placeholder.jpg';
-                    }}
-                  />
-                </div>
-                <div className="item-info">
-                  <h3>{item.name}</h3>
-                  <div className="price-info">
-                    <span className="current-price">RM{item.price}</span>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </main>
+        </main>
+      </div>
     </div>
   );
 };
