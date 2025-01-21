@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useLocation } from 'react-router-dom';
 import Header from '../components/Header';
 import itemData from '../data/item.json';
 import '../styles/ProductDetail.css';
@@ -8,6 +8,7 @@ import { useCart } from '../context/CartContext';
 // Product detail page showing specific product information
 const ProductDetail = () => {
   const { id } = useParams();
+  const location = useLocation();
   const [product, setProduct] = useState(null);
   const [relatedProducts, setRelatedProducts] = useState([]);
   const { addToCart } = useCart();
@@ -28,6 +29,14 @@ const ProductDetail = () => {
       setRelatedProducts(related);
     }
   }, [id]);
+
+  // 添加新的 useEffect 来处理滚动
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }, [location.pathname]);
 
   if (!product) {
     return <div>Loading...</div>;
