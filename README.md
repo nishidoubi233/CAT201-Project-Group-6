@@ -2,6 +2,7 @@
 
 ## Back-end project architecture using JAVA development:
 
+```tree
 usmshop_server/
 ├── src/
 │   └── main/
@@ -25,3 +26,4 @@ usmshop_server/
 │           └── WEB-INF/
 │               └── web.xml       # Web Application Configuration File
 └── pom.xml                      # Maven Configuration File
+```
