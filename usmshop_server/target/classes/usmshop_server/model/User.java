@@ -1,7 +1,7 @@
 package usmshop_server.model;
 
 /*
-    此class对应数据库中的用户表（USER_TABLE）
+    This class corresponds to the user table (USER_TABLE) in the database
 */
 public class User {
     private int userId;
@@ -9,11 +9,11 @@ public class User {
     private String userEmail;
     private String password;  
     
-    // 构造函数
+    // Constructor
     public User() {
     }
 
-    // getter & setter
+    // Getters & Setters
     public int getUserId() {
         return userId;
     }

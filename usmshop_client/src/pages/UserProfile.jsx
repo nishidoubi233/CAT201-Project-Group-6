@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/UserProfile.css';
 
+// User profile page showing user information and settings
 const UserProfile = () => {
     const navigate = useNavigate();
     const [userData, setUserData] = useState({

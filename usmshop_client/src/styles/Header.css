@@ -76,7 +76,7 @@
   background-color: rgba(0,0,0,0.1);
 }
 
-/* 购物车数量标记 */
+/* Shopping Cart Quantity Mark */
 .cart-count {
   position: absolute;
   top: -8px;
@@ -114,4 +114,6 @@
   .action-link span {
     display: none;
   }
-} 
+}
+
+/* Header styles for the main navigation */ 

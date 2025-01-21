@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../styles/Register.css';
 
+// User registration page
 const Register = () => {
   const [formData, setFormData] = useState({
     userName: '',

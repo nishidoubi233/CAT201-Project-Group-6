@@ -1,7 +1,7 @@
 package usmshop_server.model;
 
 /*
-    该class对应数据库中的购物车表（CART_TABLE）
+    This class corresponds to the shopping cart table (CART_TABLE) in the database
  */
 public class Cart {
     private int cartId;
@@ -9,7 +9,7 @@ public class Cart {
     private int itemId;
     private int quantity;
     
-
+    // Getters & Setters
     public int getCartId() {
         return cartId;
     }

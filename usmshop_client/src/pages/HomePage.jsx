@@ -13,14 +13,14 @@ const HomePage = () => {
     { id: 6, name: "Speakers", icon: "🔊", path: "speakers" }
   ];
 
-  // 预先选定的折扣商品ID - 使用这三个特定商品
+  // Pre-selected discounted product IDs - using these three specific products
   const discountItemIds = [78451, 59234, 94627];  // 这三个ID对应：
   // 78451 - Wireless Ergonomic Earbuds
   // 59234 - RGB Mechanical Gaming Keyboard
   // 94627 - Classic Bookshelf Speaker
 
   
- // other item ids
+  // other item IDs
   const recommendItemIds = [
     48293, 74638, 58247, 91457, 83562,  // Hard Drives
     63928, 52713, 46219, 31567,         // Headphones
@@ -28,22 +28,22 @@ const HomePage = () => {
     76154, 83492, 94276, 54862, 67284, 39751,  // Monitors
     58239, 61345, 47192, 38562, 52984, 64721,  // Mouse
     78349, 49283, 68327, 76431, 85329,         // Speakers
-  ]  // 使用其他耳机、键盘和音箱
+  ]  // use other headphones, keyboards and speakers
 
-  // 获取随机推荐商品ID
+  // Get random recommended product IDs
   const getRandomRecommendItemIds = () => {
     const randomIds = [];
-    const availableIds = [...recommendItemIds]; // 创建一个副本以避免修改原数组
+    const availableIds = [...recommendItemIds]; // create a copy to avoid modifying the original array
     
     while (randomIds.length < 4 && availableIds.length > 0) {
       const randomIndex = Math.floor(Math.random() * availableIds.length);
       randomIds.push(availableIds[randomIndex]);
-      availableIds.splice(randomIndex, 1); // 移除已选择的ID
+      availableIds.splice(randomIndex, 1); // remove the selected ID
     }
     return randomIds;
   };
 
-  // 获取折扣商品信息
+  // Get discounted product information
   const discountItems = discountItemIds
     .map(id => itemData.find(item => item.item_id === id))
     .filter(Boolean)
@@ -52,8 +52,8 @@ const HomePage = () => {
       discountPrice: Math.round(item.price * 0.75 * 100) / 100
     }));
 
-  // 获取推荐商品信息 - 使用随机生成的ID
-  const recommendItems = getRandomRecommendItemIds()  // 调用函数获取随机ID
+  // Get recommended product information - using randomly generated IDs
+  const recommendItems = getRandomRecommendItemIds()  // call function to get random ID
     .map(id => itemData.find(item => item.item_id === id))
     .filter(Boolean);
 

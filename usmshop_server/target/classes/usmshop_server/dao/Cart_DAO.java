@@ -6,12 +6,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /*
-    该DAO类专门与数据库中的"购物车表"进行CRUD操作
+    This DAO class is dedicated to CRUD operations on the "shopping cart table" in the database
  */
 public class Cart_DAO {
 
     /*
-       添加一条购物车记录
+        add a new cart item
      */
     public boolean addCartItem(int userId, int itemId, int quantity) {
         String sql = "INSERT INTO CART_TABLE (user_id, item_id, quantity, added_date) VALUES (?, ?, ?, NOW())";
@@ -29,7 +29,7 @@ public class Cart_DAO {
     }
 
     /*
-        移除一条购物车记录
+        remove a cart item
      */
     public boolean removeCartItem(int cartItemId) {
         String sql = "DELETE FROM CART_TABLE WHERE cart_id = ?";
@@ -45,7 +45,7 @@ public class Cart_DAO {
     }
 
     
-    //   清空某个用户的购物车
+    //   clear the cart of a user
     public void clearCartByUserId(int userId) {
         String sql = "DELETE FROM CART_TABLE WHERE user_id = ?";
         try (Connection conn = getConnection();
@@ -58,10 +58,10 @@ public class Cart_DAO {
     }
 
     /*
-        获取用户购物车中的物品ID和数量
+        get the item ID and quantity in the cart of a user
 
-        @param userId 用户ID
-        @return 包含物品ID和数量的购物车列表
+        @param userId the ID of the user
+        @return the list of cart items with item ID and quantity
      */
     public List<Cart> getCartItems(int userId) {
         List<Cart> cartItems = new ArrayList<>();
@@ -87,7 +87,7 @@ public class Cart_DAO {
     }
 
 
-    // 获取SQL数据库连接
+    // get the connection to the SQL database
     private Connection getConnection() throws SQLException {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -95,14 +95,14 @@ public class Cart_DAO {
             e.printStackTrace();
         }
         
-        // 远程SQL数据库连接信息
+        // remote SQL database connection information
         String url = "jdbc:mysql://47.79.98.152:3306/shopping_data?useSSL=false&characterEncoding=UTF-8";
         String user = "root";
         String password = "Chan771008";
         return DriverManager.getConnection(url, user, password);
     }
 
-    // 查找购物车中的记录
+    // find the cart item
     public Cart findCartItem(int userId, int itemId) {
         String sql = "SELECT * FROM CART_TABLE WHERE user_id = ? AND item_id = ?";
         try (Connection conn = getConnection();
@@ -125,7 +125,7 @@ public class Cart_DAO {
         return null;
     }
 
-    // 更新购物车中某一条记录的数量
+    // update the quantity of a cart item
     public boolean updateCartItemQuantity(int cartId, int quantity) {
         String sql = "UPDATE CART_TABLE SET quantity = ? WHERE cart_id = ?";
         try (Connection conn = getConnection();
