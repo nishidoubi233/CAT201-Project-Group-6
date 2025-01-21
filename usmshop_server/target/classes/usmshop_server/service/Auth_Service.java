@@ -7,44 +7,44 @@ import java.security.NoSuchAlgorithmException;
 import java.nio.charset.StandardCharsets;
 
 /*
-    该class主要负责用户登录和注册的逻辑
+    this class is used to handle the login and register logic
  */
 public class Auth_Service {
 
     private User_DAO userDAO = new User_DAO();
 
     /*
-        登录业务逻辑：根据email查询用户，并比对密码哈希
+        login logic: find user by email and compare the hashed password
      */
     public User login(String email, String password) {
-        // 根据邮箱查找用户
+        // find user by email
         User user = userDAO.findByEmail(email);
         if (user == null) {
-            return null; // 用户不存在
+            return null; // user not found
         }
 
-        // 对输入的密码进行哈希，然后与存储的哈希值比对
+        // hash the input password and compare it with the stored hashed password
         String hashedPassword = hashPassword(password);
         if (hashedPassword != null && hashedPassword.equals(user.getPassword())) {
-            return user; // 登录成功
+            return user; // login success
         }
-        return null; // 密码错误
+        return null; // password error
     }
 
     /*
-     注册账户主逻辑: 检查邮箱是否已经存在，否则创建新用户
+        register logic: check if the email is already taken, otherwise create a new user
      */
     public boolean register(String userName, String email, String password) {
-        // 先检查邮箱是否占用
+        // check if the email is already taken
         User existing = userDAO.findByEmail(email);
         if (existing != null) {
-            return false; // 已存在同邮箱用户
+            return false; // email already taken
         }
 
-        // 创建新用户，存储密码哈希值
+        // create a new user and store the hashed password
         String hashedPassword = hashPassword(password);
         if (hashedPassword == null) {
-            return false; // 哈希处理失败
+            return false; // hashing failed
         }
 
         User newUser = new User();
@@ -56,14 +56,14 @@ public class Auth_Service {
     }
 
     /*
-     使用SHA-256进行密码哈希
+        use SHA-256 to hash the password
      */
     private String hashPassword(String password) {
         try {
             MessageDigest digest = MessageDigest.getInstance("SHA-256");
             byte[] hash = digest.digest(password.getBytes(StandardCharsets.UTF_8));
             
-            // 将字节数组转换为十六进制字符串
+            // convert the byte array to a hexadecimal string
             StringBuilder hexString = new StringBuilder();
             for (byte b : hash) {
                 String hex = Integer.toHexString(0xff & b);

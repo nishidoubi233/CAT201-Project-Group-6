@@ -5,59 +5,59 @@ import usmshop_server.model.Cart;
 import java.util.List;
 
 /*
-    该class主要负责购物车相关的业务逻辑
+    This class is responsible for shopping cart related business logic
  */
 public class Cart_Service {
 
     private Cart_DAO cartDAO = new Cart_DAO();
 
     /*
-        添加商品到购物车
+        Add item to shopping cart
      */
     public boolean addItemToCart(int userId, int itemId, int quantity) {
-        // 先查找是否已存在该商品
+        // First check if the item already exists
         Cart existingItem = cartDAO.findCartItem(userId, itemId);
         
         if (existingItem != null) {
-            // 如果已存在，更新数量
+            // If exists, update the quantity
             int newQuantity = existingItem.getQuantity() + quantity;
             return cartDAO.updateCartItemQuantity(existingItem.getCartId(), newQuantity);
         } else {
-            // 如果不存在 , 则添加新记录
+            // If not exists, add new record
             return cartDAO.addCartItem(userId, itemId, quantity);
         }
     }
 
     /*
-        移除购物车中的某一条记录
+        Remove an item from shopping cart
      */
     public boolean removeItem(int cartItemId) {
         return cartDAO.removeCartItem(cartItemId);
     }
 
     /*
-        清空某个用户的购物车
+        Clear user's shopping cart
      */
     public void clearCart(int userId) {
         cartDAO.clearCartByUserId(userId);
     }
 
     /*
-        获取用户的购物车列表
+        Get user's shopping cart items
      */
     public List<Cart> getCartItems(int userId) {
         return cartDAO.getCartItems(userId);
     }
 
     /*
-     更新购物车商品数量
+        Update cart item quantity
      */
     public boolean updateCartItemQuantity(int cartItemId, int newQuantity) {
         return cartDAO.updateCartItemQuantity(cartItemId, newQuantity);
     }
 
     public boolean updateItemQuantity(int userId, int itemId, int quantity) {
-        // 使用DAO层的方法而不是直接访问数据库
+        // Use DAO method instead of accessing database directly
         Cart existingItem = cartDAO.findCartItem(userId, itemId);
         if (existingItem != null) {
             return cartDAO.updateCartItemQuantity(existingItem.getCartId(), quantity);

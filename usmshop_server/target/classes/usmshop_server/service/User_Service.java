@@ -4,18 +4,18 @@ import usmshop_server.dao.User_DAO;
 import usmshop_server.model.User;
 
 /*
-    该class主要负责用户信息的业务逻辑
+    This class is responsible for user information business logic
  */
 public class User_Service {
 
     private User_DAO userDAO = new User_DAO();
 
     /*
-        根据用户ID获取用户信息
+        Get user information by user ID
      */
     public User getUserById(int userId) {
         return userDAO.findById(userId);
     }
 
-    // 更新密码放在未来版本会实装
+    // Password update will be implemented in future versions
 }
