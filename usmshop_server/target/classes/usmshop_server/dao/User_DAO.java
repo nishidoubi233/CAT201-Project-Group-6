@@ -11,15 +11,28 @@ public class User_DAO {
 
     // 创建新用户
     public boolean createUser(User user) {
-        String sql = "INSERT INTO USER_TABLE (user_name, user_email, user_password, user_registerdate) VALUES (?, ?, ?, NOW())";
-
-        try (Connection conn = getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, user.getUserName());
-            pstmt.setString(2, user.getUserEmail());
-            pstmt.setString(3, user.getPassword());
-            int rows = pstmt.executeUpdate();
-            return rows > 0;
+        // 首先获取新的user_id
+        String getMaxIdSql = "SELECT COALESCE(MAX(user_id) + 1, 0) FROM USER_TABLE";
+        String insertSql = "INSERT INTO USER_TABLE (user_id, user_name, user_email, user_password, user_registerdate) VALUES (?, ?, ?, ?, NOW())";
+        
+        try (Connection conn = getConnection()) {
+            // 首先获取新的ID
+            int newId;
+            try (PreparedStatement pstmt = conn.prepareStatement(getMaxIdSql);
+                 ResultSet rs = pstmt.executeQuery()) {
+                rs.next();
+                newId = rs.getInt(1);
+            }
+            
+            // 然后插入新用户
+            try (PreparedStatement pstmt = conn.prepareStatement(insertSql)) {
+                pstmt.setInt(1, newId);
+                pstmt.setString(2, user.getUserName());
+                pstmt.setString(3, user.getUserEmail());
+                pstmt.setString(4, user.getPassword());
+                int rows = pstmt.executeUpdate();
+                return rows > 0;
+            }
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
