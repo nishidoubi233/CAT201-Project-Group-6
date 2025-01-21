@@ -12,7 +12,7 @@ import java.util.List;
 import com.google.gson.Gson;
 
 /*
-    该Servlet用于处理购物车的增删改查操作
+    This Servlet is used to handle the CRUD operations on the shopping cart
  */
 
 @WebServlet("/cart")
@@ -22,15 +22,15 @@ public class Cart_Servlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        // 将返回类型设为 JSON
+        // set the response type to JSON
         resp.setContentType("application/json;charset=UTF-8");
         PrintWriter out = resp.getWriter();
 
         String action = req.getParameter("action"); 
-        // 可能的action: "add", "clear", "update"
+        // possible actions: "add", "clear", "update"
 
         if ("add".equalsIgnoreCase(action)) {
-            // 添加购物车
+            // add to cart
             String userIdParam = req.getParameter("userId");
             String itemIdParam = req.getParameter("itemId");
             String quantityParam = req.getParameter("quantity");
@@ -51,7 +51,7 @@ public class Cart_Servlet extends HttpServlet {
             }
 
         } else if ("clear".equalsIgnoreCase(action)) {
-            // 清空购物车
+            // clear the cart
             String userIdParam = req.getParameter("userId");
             try {
                 int userId = Integer.parseInt(userIdParam);
@@ -86,11 +86,11 @@ public class Cart_Servlet extends HttpServlet {
 
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        // 删除购物车内某件商品
+        // delete an item from the cart
         resp.setContentType("application/json;charset=UTF-8");
         PrintWriter out = resp.getWriter();
 
-        // 简化假设：通过参数 cartItemId 来删除
+        // simplified assumption: delete by cartItemId
         String cartItemIdParam = req.getParameter("cartItemId");
         try {
             int cartItemId = Integer.parseInt(cartItemIdParam);
@@ -108,7 +108,7 @@ public class Cart_Servlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("application/json;charset=UTF-8");
-        // 添加CORS头
+        // add CORS headers
         resp.setHeader("Access-Control-Allow-Origin", "*");
         resp.setHeader("Access-Control-Allow-Methods", "GET, POST, DELETE");
         

@@ -68,27 +68,68 @@
   position: relative;
 }
 
-.login, .cart {
-  text-decoration: none;
-  color: #333;
-  font-size: 14px;
-  padding: 8px 16px;
-  border-radius: 4px;
-  transition: all 0.3s ease;
-  background-color: white;
-  border: 1px solid #ddd;
-  display: inline-flex;
+.user-menu {
+  display: flex;
   align-items: center;
-  gap: 5px;
-  cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  gap: 15px;
 }
 
-.login:hover, .cart:hover {
-  background-color: #333;
+.user-name {
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.user-name:hover {
+  background-color: #f0f0f0;
+}
+
+.logout-button {
+  background-color: transparent;
+  border: 1px solid #e44d26;
+  color: #e44d26;
+  padding: 5px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.logout-button:hover {
+  background-color: #e44d26;
   color: white;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.cart {
+  color: #e44d26;
+  text-decoration: none;
+  padding: 5px 15px;
+  border: 1px solid #e44d26;
+  border-radius: 4px;
+  transition: all 0.2s;
+  margin-left: 15px;
+}
+
+.cart:hover {
+  background-color: #e44d26;
+  color: white;
+}
+
+.login {
+  color: #e44d26;
+  text-decoration: none;
+  padding: 5px 15px;
+  border: 1px solid #e44d26;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.login:hover {
+  background-color: #e44d26;
+  color: white;
 }
 
 /* Shopping Cart Quantity Mark */

@@ -3,9 +3,6 @@ package usmshop_server.service;
 import usmshop_server.dao.Cart_DAO;
 import usmshop_server.model.Cart;
 import java.util.List;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 
 /*
     该class主要负责购物车相关的业务逻辑

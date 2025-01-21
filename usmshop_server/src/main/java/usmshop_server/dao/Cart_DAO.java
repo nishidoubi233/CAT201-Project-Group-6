@@ -98,7 +98,7 @@ public class Cart_DAO {
         // remote SQL database connection information
         String url = "jdbc:mysql://47.79.98.152:3306/shopping_data?useSSL=false&characterEncoding=UTF-8";
         String user = "root";
-        String password = "Chan771008";
+        String password = "write your password here";
         return DriverManager.getConnection(url, user, password);
     }
 
