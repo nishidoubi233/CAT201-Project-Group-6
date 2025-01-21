@@ -13,7 +13,7 @@ import java.io.PrintWriter;
     该Servlet用于处理用户的登录和注册
  */
 
-@WebServlet("/auth")
+@WebServlet("/api/auth")
 public class Auth_Servlet extends HttpServlet {
 
     //用于处理登录和注册的逻辑
@@ -21,6 +21,12 @@ public class Auth_Servlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        // 添加CORS响应头
+        resp.setHeader("Access-Control-Allow-Origin", "http://localhost:5173");
+        resp.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS");
+        resp.setHeader("Access-Control-Allow-Headers", "Content-Type");
+        resp.setHeader("Access-Control-Allow-Credentials", "true");
+        
         // 设置返回类型为JSON
         resp.setContentType("application/json;charset=UTF-8");
 
@@ -60,6 +66,16 @@ public class Auth_Servlet extends HttpServlet {
             // 未知操作
             out.println("{ \"status\": \"error\", \"message\": \"unknown operation\" }");
         }
+    }
+
+    // 添加OPTIONS请求处理
+    @Override
+    protected void doOptions(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setHeader("Access-Control-Allow-Origin", "http://localhost:5173");
+        resp.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS");
+        resp.setHeader("Access-Control-Allow-Headers", "Content-Type");
+        resp.setHeader("Access-Control-Allow-Credentials", "true");
+        resp.setStatus(HttpServletResponse.SC_OK);
     }
 }
 

@@ -29,7 +29,7 @@ const Register = () => {
     }
 
     try {
-      const response = await fetch('/api/auth?action=register', {
+      const response = await fetch('http://localhost:8080/api/auth?action=register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
