@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 import itemData from '../data/item.json';
 import '../styles/CategoryPage.css';
 
@@ -49,7 +50,7 @@ const CategoryPage = () => {
   }
 
   return (
-    <div>
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <Header />
       <div className="category-page">
         <div className="category-header">
@@ -72,6 +73,7 @@ const CategoryPage = () => {
           ))}
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

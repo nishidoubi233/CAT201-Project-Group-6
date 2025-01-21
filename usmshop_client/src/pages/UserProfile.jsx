@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/UserProfile.css';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
 
 // User profile page showing user information and settings
 const UserProfile = () => {
@@ -65,65 +67,69 @@ const UserProfile = () => {
     };
 
     return (
-        <div className="page-container">
-            <div className="header">
-                <div className="back-button" onClick={() => navigate('/')}>
-                    <span>&lt;</span>
-                    <span>Back to Home</span>
+        <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+            <Header />
+            <div className="page-container">
+                <div className="header">
+                    <div className="back-button" onClick={() => navigate('/')}>
+                        <span>&lt;</span>
+                        <span>Back to Home</span>
+                    </div>
+                    <div className="title">My Account</div>
+                    <div className="placeholder"></div>
                 </div>
-                <div className="title">My Account</div>
-                <div className="placeholder"></div>
-            </div>
 
-            <div className="shop-info">
-                <div className="avatar" onClick={() => document.getElementById('avatarUpload').click()}>
-                    <img src={userData.avatar} alt="Profile" id="avatarImg" />
-                    <input
-                        type="file"
-                        id="avatarUpload"
-                        accept="image/*"
-                        style={{ display: 'none' }}
-                        onChange={handleAvatarChange}
-                    />
-                    <div className="avatar-overlay">
-                        <span>Change</span>
+                <div className="shop-info">
+                    <div className="avatar" onClick={() => document.getElementById('avatarUpload').click()}>
+                        <img src={userData.avatar} alt="Profile" id="avatarImg" />
+                        <input
+                            type="file"
+                            id="avatarUpload"
+                            accept="image/*"
+                            style={{ display: 'none' }}
+                            onChange={handleAvatarChange}
+                        />
+                        <div className="avatar-overlay">
+                            <span>Change</span>
+                        </div>
+                    </div>
+                    <div className="shop-details">
+                        <div className="shop-name">{userData.name}</div>
+                        <div className="shop-phone">{userData.email}</div>
                     </div>
                 </div>
-                <div className="shop-details">
-                    <div className="shop-name">{userData.name}</div>
-                    <div className="shop-phone">{userData.email}</div>
-                </div>
-            </div>
 
-            <div className="stats-bar">
-                <div className="stat-item">
-                    <div className="stat-value">RM{userData.balance}</div>
-                    <div className="stat-label">Balance</div>
+                <div className="stats-bar">
+                    <div className="stat-item">
+                        <div className="stat-value">RM{userData.balance}</div>
+                        <div className="stat-label">Balance</div>
+                    </div>
                 </div>
-            </div>
 
-            <div className="menu-list">
-                <div className="menu-item" onClick={() => navigate('/cart')}>
-                    <div className="menu-icon">🛍️</div>
-                    <div className="menu-text">Shopping Cart</div>
-                    <div className="arrow">›</div>
-                </div>
-                <div className="menu-item">
-                    <div className="menu-icon">📍</div>
-                    <div className="menu-text">Shipping Address</div>
-                    <div className="arrow">›</div>
-                </div>
-                <div className="menu-item">
-                    <div className="menu-icon">💳</div>
-                    <div className="menu-text">Payment Methods</div>
-                    <div className="arrow">›</div>
-                </div>
-                <div className="menu-item">
-                    <div className="menu-icon">⭐</div>
-                    <div className="menu-text">My Reviews</div>
-                    <div className="arrow">›</div>
+                <div className="menu-list">
+                    <div className="menu-item" onClick={() => navigate('/cart')}>
+                        <div className="menu-icon">🛍️</div>
+                        <div className="menu-text">Shopping Cart</div>
+                        <div className="arrow">›</div>
+                    </div>
+                    <div className="menu-item">
+                        <div className="menu-icon">📍</div>
+                        <div className="menu-text">Shipping Address</div>
+                        <div className="arrow">›</div>
+                    </div>
+                    <div className="menu-item">
+                        <div className="menu-icon">💳</div>
+                        <div className="menu-text">Payment Methods</div>
+                        <div className="arrow">›</div>
+                    </div>
+                    <div className="menu-item">
+                        <div className="menu-icon">⭐</div>
+                        <div className="menu-text">My Reviews</div>
+                        <div className="arrow">›</div>
+                    </div>
                 </div>
             </div>
+            <Footer />
         </div>
     );
 };

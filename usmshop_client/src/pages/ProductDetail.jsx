@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link, useLocation } from 'react-router-dom';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 import itemData from '../data/item.json';
 import '../styles/ProductDetail.css';
 import { useCart } from '../context/CartContext';
@@ -48,7 +49,7 @@ const ProductDetail = () => {
   };
 
   return (
-    <div>
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <Header />
       <div className="product-detail">
         <div className="product-main">
@@ -108,6 +109,7 @@ const ProductDetail = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

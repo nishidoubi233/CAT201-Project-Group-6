@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import { useCart } from '../context/CartContext';
 import '../styles/CartPage.css';
+import Footer from '../components/Footer';
 
 // Cart Page, display the cart items and the total price
 
@@ -15,7 +16,7 @@ const CartPage = () => {
   };
 
   return (
-    <div>
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <Header />
       <div className="cart-page">
         <div className="cart-content">
@@ -65,6 +66,7 @@ const CartPage = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

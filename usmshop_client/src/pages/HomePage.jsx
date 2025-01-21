@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import '../styles/HomePage.css';
 import itemData from '../data/item.json';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const HomePage = () => {
   const categories = [
@@ -59,7 +60,7 @@ const HomePage = () => {
     .filter(Boolean);
 
   return (
-    <div>
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <Header />
       <div className="home-page">
         <main className="main-content">
@@ -140,6 +141,7 @@ const HomePage = () => {
           </div>
         </main>
       </div>
+      <Footer />
     </div>
   );
 };
