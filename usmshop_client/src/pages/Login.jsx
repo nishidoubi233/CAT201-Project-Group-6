@@ -35,25 +35,27 @@ const Login = () => {
       const data = await response.json();
       
       if (data.status === 'ok') {
-        // 登录成功，存储用户信息并跳转
+        // Store user information
         localStorage.setItem('userId', data.userId);
-        navigate('/'); // 跳转到首页
+        localStorage.setItem('userName', data.userName); // Backend needs to return userName
+        localStorage.setItem('userEmail', formData.email);
+        navigate('/profile'); // Redirect to profile page
       } else {
         setError(data.message);
       }
     } catch (err) {
-      setError('登录失败，请稍后重试');
+      setError('login failed');
     }
   };
 
   return (
     <div className="login-container">
       <div className="login-box">
-        <h2>登录</h2>
+        <h2>Login</h2>
         {error && <div className="error-message">{error}</div>}
         <form className="login-form" onSubmit={handleSubmit}>
           <div className="form-group">
-            <label htmlFor="email">邮箱</label>
+            <label htmlFor="email">Email</label>
             <input
               type="email"
               id="email"
@@ -64,7 +66,7 @@ const Login = () => {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="password">密码</label>
+            <label htmlFor="password">Password</label>
             <input
               type="password"
               id="password"
@@ -74,10 +76,10 @@ const Login = () => {
               required
             />
           </div>
-          <button type="submit" className="login-button">登录</button>
+          <button type="submit" className="login-button">Login</button>
         </form>
         <p className="register-link">
-          还没有账号？ <Link to="/register">立即注册</Link>
+          No account? <Link to="/register">Register now</Link>
         </p>
       </div>
     </div>

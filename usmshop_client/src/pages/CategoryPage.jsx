@@ -10,7 +10,7 @@ const CategoryPage = () => {
   const [categoryName, setCategoryName] = useState('');
 
   useEffect(() => {
-    // 将类别名称映射到item_type
+    // Map category names to item_type
     const categoryMap = {
       'hard-drives': 'hard drive',
       'headphones': 'headphone',
@@ -24,7 +24,7 @@ const CategoryPage = () => {
     if (type) {
       const filteredProducts = itemData.filter(item => item.item_type === type);
       setProducts(filteredProducts);
-      // 格式化显示名称
+      // Format display name
       const categoryDisplayNames = {
         'hard-drives': 'Hard Drives',
         'headphones': 'Headphones',

@@ -24,7 +24,7 @@ const Register = () => {
     
     // 验证密码是否匹配
     if (formData.password !== formData.confirmPassword) {
-      setError('两次输入的密码不一致');
+      setError('The two passwords do not match');
       return;
     }
 
@@ -51,18 +51,18 @@ const Register = () => {
         setError(data.message);
       }
     } catch (err) {
-      setError('注册失败，请稍后重试');
+      setError('Register failed, please try again later');
     }
   };
 
   return (
     <div className="register-container">
       <div className="register-box">
-        <h2>注册</h2>
+        <h2>Register</h2>
         {error && <div className="error-message">{error}</div>}
         <form className="register-form" onSubmit={handleSubmit}>
           <div className="form-group">
-            <label htmlFor="userName">用户名</label>
+            <label htmlFor="userName">Username</label>
             <input
               type="text"
               id="userName"
@@ -73,7 +73,7 @@ const Register = () => {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="email">邮箱</label>
+            <label htmlFor="email">Email</label>
             <input
               type="email"
               id="email"
@@ -84,7 +84,7 @@ const Register = () => {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="password">密码</label>
+            <label htmlFor="password">Password</label>
             <input
               type="password"
               id="password"
@@ -95,7 +95,7 @@ const Register = () => {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="confirmPassword">确认密码</label>
+            <label htmlFor="confirmPassword">Confirm Password</label>
             <input
               type="password"
               id="confirmPassword"
@@ -105,10 +105,10 @@ const Register = () => {
               required
             />
           </div>
-          <button type="submit" className="register-button">注册</button>
+          <button type="submit" className="register-button">Register</button>
         </form>
         <p className="login-link">
-          已有账号？ <Link to="/login">立即登录</Link>
+          Have an account? <Link to="/login">Login now</Link>
         </p>
       </div>
     </div>
