@@ -31,7 +31,7 @@ public class Cart_Servlet extends HttpServlet {
             String userIdParam = req.getParameter("userId");
             String itemIdParam = req.getParameter("itemId");
             String quantityParam = req.getParameter("quantity");
-    
+            // 简化：仅做基本的解析与检验
             try {
                 int userId = Integer.parseInt(userIdParam);
                 int itemId = Integer.parseInt(itemIdParam);
@@ -39,12 +39,12 @@ public class Cart_Servlet extends HttpServlet {
 
                 boolean success = cartService.addItemToCart(userId, itemId, quantity);
                 if (success) {
-                    out.println("{ \"status\": \"ok\", \"message\": \"add success\" }");
+                    out.println("{ \"status\": \"ok\", \"message\": \"添加成功\" }");
                 } else {
-                    out.println("{ \"status\": \"fail\", \"message\": \"add failed or item already exists\" }");
+                    out.println("{ \"status\": \"fail\", \"message\": \"添加失败或商品已存在\" }");
                 }
             } catch (NumberFormatException e) {
-                out.println("{ \"status\": \"fail\", \"message\": \"parameter format error\" }");
+                out.println("{ \"status\": \"fail\", \"message\": \"参数格式错误\" }");
             }
 
         } else if ("clear".equalsIgnoreCase(action)) {
@@ -53,12 +53,12 @@ public class Cart_Servlet extends HttpServlet {
             try {
                 int userId = Integer.parseInt(userIdParam);
                 cartService.clearCart(userId);
-                out.println("{ \"status\": \"ok\", \"message\": \"cart cleared\" }");
+                out.println("{ \"status\": \"ok\", \"message\": \"购物车已清空\" }");
             } catch (NumberFormatException e) {
-                out.println("{ \"status\": \"fail\", \"message\": \"user id format error\" }");
+                out.println("{ \"status\": \"fail\", \"message\": \"用户ID格式错误\" }");
             }
         } else {
-            out.println("{ \"status\": \"error\", \"message\": \"unknown operation\" }");
+            out.println("{ \"status\": \"error\", \"message\": \"未知操作\" }");
         }
     }
 
@@ -74,12 +74,12 @@ public class Cart_Servlet extends HttpServlet {
             int cartItemId = Integer.parseInt(cartItemIdParam);
             boolean success = cartService.removeItem(cartItemId);
             if (success) {
-                out.println("{ \"status\": \"ok\", \"message\": \"item deleted\" }");
+                out.println("{ \"status\": \"ok\", \"message\": \"商品已删除\" }");
             } else {
-                out.println("{ \"status\": \"fail\", \"message\": \"delete failed or item not found\" }");
+                out.println("{ \"status\": \"fail\", \"message\": \"删除失败或商品不存在\" }");
             }
         } catch (NumberFormatException e) {
-            out.println("{ \"status\": \"fail\", \"message\": \"cartItemId format error\" }");
+            out.println("{ \"status\": \"fail\", \"message\": \"cartItemId格式错误\" }");
         }
     }
 }

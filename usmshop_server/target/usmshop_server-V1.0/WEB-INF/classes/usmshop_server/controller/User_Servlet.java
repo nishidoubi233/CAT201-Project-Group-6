@@ -27,7 +27,7 @@ public class User_Servlet extends HttpServlet {
 
         String userIdParam = req.getParameter("id"); 
         if (userIdParam == null) {
-            out.println("{ \"status\": \"fail\", \"message\": \"no user id\" }");
+            out.println("{ \"status\": \"fail\", \"message\": \"缺少用户ID参数\" }");
             return;
         }
 
@@ -35,7 +35,7 @@ public class User_Servlet extends HttpServlet {
         try {
             userId = Integer.parseInt(userIdParam);
         } catch (NumberFormatException e) {
-            out.println("{ \"status\": \"fail\", \"message\": \"user id format error\" }");
+            out.println("{ \"status\": \"fail\", \"message\": \"用户ID格式错误\" }");
             return;
         }
 
@@ -53,7 +53,7 @@ public class User_Servlet extends HttpServlet {
             out.println("  }");
             out.println("}");
         } else {
-            out.println("{ \"status\": \"fail\", \"message\": \"user not found\" }");
+            out.println("{ \"status\": \"fail\", \"message\": \"用户不存在\" }");
         }
     }
 }
