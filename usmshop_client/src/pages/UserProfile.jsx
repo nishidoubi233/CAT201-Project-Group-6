@@ -9,8 +9,6 @@ const UserProfile = () => {
         name: '',
         email: '',
         avatar: '/default-avatar.png',
-        points: 0,
-        coupons: 0,
         balance: 0
     });
 
@@ -37,8 +35,6 @@ const UserProfile = () => {
                         name: data.user.userName,
                         email: data.user.email,
                         avatar: data.user.avatar || '/default-avatar.png',
-                        points: data.user.points || 0,
-                        coupons: data.user.coupons || 0,
                         balance: data.user.balance || 0
                     });
                     
@@ -63,21 +59,17 @@ const UserProfile = () => {
                     ...prev,
                     avatar: e.target.result
                 }));
-                // Add logic here to upload to server
             };
             reader.readAsDataURL(file);
         }
     };
 
-    const navigateTo = (path) => {
-        navigate(path);
-    };
-
     return (
         <div className="page-container">
             <div className="header">
-                <div className="back-button" onClick={() => navigate(-1)}>
-                    <span>‹</span>
+                <div className="back-button" onClick={() => navigate('/')}>
+                    <span>&lt;</span>
+                    <span>Back to Home</span>
                 </div>
                 <div className="title">My Account</div>
                 <div className="placeholder"></div>
@@ -105,36 +97,28 @@ const UserProfile = () => {
 
             <div className="stats-bar">
                 <div className="stat-item">
-                    <div className="stat-value">{userData.points}</div>
-                    <div className="stat-label">Points</div>
-                </div>
-                <div className="stat-item">
-                    <div className="stat-value">{userData.coupons}</div>
-                    <div className="stat-label">Coupons</div>
-                </div>
-                <div className="stat-item">
-                    <div className="stat-value">${userData.balance}</div>
+                    <div className="stat-value">RM{userData.balance}</div>
                     <div className="stat-label">Balance</div>
                 </div>
             </div>
 
             <div className="menu-list">
-                <div className="menu-item" onClick={() => navigateTo('/cart')}>
+                <div className="menu-item" onClick={() => navigate('/cart')}>
                     <div className="menu-icon">🛍️</div>
                     <div className="menu-text">Shopping Cart</div>
                     <div className="arrow">›</div>
                 </div>
-                <div className="menu-item" onClick={() => navigateTo('/address')}>
+                <div className="menu-item">
                     <div className="menu-icon">📍</div>
                     <div className="menu-text">Shipping Address</div>
                     <div className="arrow">›</div>
                 </div>
-                <div className="menu-item" onClick={() => navigateTo('/payment')}>
+                <div className="menu-item">
                     <div className="menu-icon">💳</div>
                     <div className="menu-text">Payment Methods</div>
                     <div className="arrow">›</div>
                 </div>
-                <div className="menu-item" onClick={() => navigateTo('/reviews')}>
+                <div className="menu-item">
                     <div className="menu-icon">⭐</div>
                     <div className="menu-text">My Reviews</div>
                     <div className="arrow">›</div>

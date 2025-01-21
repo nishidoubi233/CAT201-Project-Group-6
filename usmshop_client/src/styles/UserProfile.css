@@ -21,24 +21,54 @@ body {
     min-height: 100vh;
 }
 
-
-.title {
-    font-size: 24px;
-    font-weight: 600;
-    color: var(--text-primary);
+.header {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;  
+    align-items: center;
+    padding: 20px 25px;
+    background-color: #FFB100;
 }
 
 .back-button {
-    font-size: 28px;
-    color: #2c3e50;
+    justify-self: start;  
     cursor: pointer;
-    padding: 5px 15px;
-    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 20px;
     transition: background-color 0.3s;
 }
 
 .back-button:hover {
-    background-color: var(--hover-color);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.back-button span {
+    color: white;
+    font-size: 14px;
+    line-height: 1;
+    font-weight: 500;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.placeholder {
+    
+    width: 100px;
+    visibility: hidden;
+}
+
+.back-button-text {
+    color: rgb(0, 0, 0);
+    font-size: 14px;
 }
 
 .shop-info {
@@ -103,34 +133,29 @@ body {
 
 .stats-bar {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    background: white;
     padding: 15px;
-    background-color: var(--background-cream);
-    border-bottom: 1px solid rgba(255, 140, 55, 0.1);
-    width: 100%;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
 .stat-item {
-    position: relative;
-    padding: 15px;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease;
-}
-
-.stat-item:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(255, 177, 0, 0.2);
+    text-align: center;
+    padding: 0 20px;
 }
 
 .stat-value {
-    color: var(--primary-color);
-    font-weight: 600;
+    font-size: 24px;
+    font-weight: bold;
+    color: #FF8C37;
 }
 
 .stat-label {
-    color: var(--text-secondary);
+    font-size: 14px;
+    color: #666;
+    margin-top: 5px;
 }
 
 .menu-list {
