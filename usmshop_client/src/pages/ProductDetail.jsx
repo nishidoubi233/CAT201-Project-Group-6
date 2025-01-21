@@ -5,6 +5,7 @@ import itemData from '../data/item.json';
 import '../styles/ProductDetail.css';
 import { useCart } from '../context/CartContext';
 
+// Product detail page showing specific product information
 const ProductDetail = () => {
   const { id } = useParams();
   const location = useLocation();
@@ -13,18 +14,18 @@ const ProductDetail = () => {
   const { addToCart } = useCart();
 
   useEffect(() => {
-    // 从JSON文件中查找对应ID的商品
+    // find the product with the corresponding ID in the JSON file
     const currentProduct = itemData.find(item => item.item_id === parseInt(id));
     if (currentProduct) {
       setProduct(currentProduct);
       
-      // 获取同类型的相关商品
+      // get related products of the same type
       const related = itemData
         .filter(item => 
           item.item_type === currentProduct.item_type && 
           item.item_id !== currentProduct.item_id
         )
-        .slice(0, 4); // 最多显示4个相关商品
+        .slice(0, 4); // display up to 4 related products
       setRelatedProducts(related);
     }
   }, [id]);

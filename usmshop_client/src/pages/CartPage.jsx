@@ -4,6 +4,8 @@ import Header from '../components/Header';
 import { useCart } from '../context/CartContext';
 import '../styles/CartPage.css';
 
+// Cart Page, display the cart items and the total price
+
 const CartPage = () => {
   const { cartItems, removeFromCart, updateQuantity } = useCart();
   const navigate = useNavigate();
