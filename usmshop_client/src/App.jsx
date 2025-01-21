@@ -8,6 +8,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import CheckoutPage from './pages/CheckoutPage';
 import UserProfile from './pages/UserProfile';
+import SearchResults from './pages/SearchResults';
 import './App.css';
 import { CartProvider } from './context/CartContext';
 
@@ -24,6 +25,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="/profile" element={<UserProfile />} />
+          <Route path="/search" element={<SearchResults />} />
         </Routes>
       </Router>
     </CartProvider>
