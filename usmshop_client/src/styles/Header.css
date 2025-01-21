@@ -1,5 +1,9 @@
 .header {
-  background-color: #fff;
+  background-color: rgb(255, 230, 15);
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   border-bottom: 1px solid #e8e8e8;
 }
 
@@ -59,8 +63,9 @@
 
 .user-actions {
   display: flex;
-  gap: 20px;
+  gap: 15px;
   align-items: center;
+  position: relative;
 }
 
 .login, .cart {
@@ -69,11 +74,21 @@
   font-size: 14px;
   padding: 8px 16px;
   border-radius: 4px;
-  transition: background-color 0.2s;
+  transition: all 0.3s ease;
+  background-color: white;
+  border: 1px solid #ddd;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .login:hover, .cart:hover {
-  background-color: rgba(0,0,0,0.1);
+  background-color: #333;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 /* Shopping Cart Quantity Mark */
@@ -88,6 +103,7 @@
   border-radius: 10px;
   min-width: 16px;
   text-align: center;
+  border: 2px solid rgb(255, 230, 15);
 }
 
 /* 响应式设计 */
@@ -111,8 +127,16 @@
     width: 50px;
   }
 
-  .action-link span {
+  .login span, .cart span {
     display: none;
+  }
+  
+  .login, .cart {
+    padding: 8px 12px;
+  }
+  
+  .login i, .cart i {
+    font-size: 18px;
   }
 }
 
