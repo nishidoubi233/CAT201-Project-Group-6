@@ -55,4 +55,13 @@ public class Cart_Service {
     public boolean updateCartItemQuantity(int cartItemId, int newQuantity) {
         return cartDAO.updateCartItemQuantity(cartItemId, newQuantity);
     }
+
+    public boolean updateItemQuantity(int userId, int itemId, int quantity) {
+        // 使用DAO层的方法而不是直接访问数据库
+        Cart existingItem = cartDAO.findCartItem(userId, itemId);
+        if (existingItem != null) {
+            return cartDAO.updateCartItemQuantity(existingItem.getCartId(), quantity);
+        }
+        return false;
+    }
 }

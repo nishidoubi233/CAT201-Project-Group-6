@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 /*
-    该Servlet用于处理用户的查询、更新等操作
+    This Servlet handles user queries and updates
  */
 @WebServlet("/user")
 public class User_Servlet extends HttpServlet {
@@ -20,8 +20,7 @@ public class User_Servlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        // 设置返回类型为JSON
-
+        // Set return type to JSON
         resp.setContentType("application/json;charset=UTF-8");
         PrintWriter out = resp.getWriter();
 
@@ -39,11 +38,11 @@ public class User_Servlet extends HttpServlet {
             return;
         }
 
-        // 获取用户信息
+        // Get user information
         User user = userService.getUserById(userId);
         if (user != null) {
 
-            // 返回用户信息
+            // return user information
             out.println("{");
             out.println("  \"status\": \"ok\",");
             out.println("  \"user\": {");
