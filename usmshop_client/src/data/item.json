@@ -295,4 +295,13 @@
     "image_id": "Speaker_6.jpg",
     "description": "High-fidelity bookshelf speaker with classic design"
   }
+  ,
+  {
+    "item_id": 1,
+    "item_type": "signboard",
+    "name": "Kanban Musume",
+    "price": -114514,
+    "image_id": "001.jpg",
+    "description": "kanban musume - very cute!!!"
+  }
 ]
